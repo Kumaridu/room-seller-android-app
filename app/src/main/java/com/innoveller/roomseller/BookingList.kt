@@ -6,15 +6,16 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 
-class MainActivity : AppCompatActivity() {
+class BookingList : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_booking_list)
 
-        val button = findViewById<Button>(R.id.btn_logIn);
+        val viewDetailBtn = findViewById<Button>(R.id.btn_view_detail);
 
-        button.setOnClickListener() {
-            intent = Intent(applicationContext, BookingList::class.java)
+
+        viewDetailBtn.setOnClickListener() {
+            intent = Intent(this, BookingDetail::class.java);
             startActivity(intent);
         }
     }
