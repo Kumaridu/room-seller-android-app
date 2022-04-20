@@ -15,8 +15,8 @@ class BookingList : AppCompatActivity() {
 
 
         viewDetailBtn.setOnClickListener() {
-            intent = Intent(this, BookingDetail::class.java);
-            startActivity(intent);
+            val intents = Intent(this, BookingDetail::class.java);
+            startActivity(intents);
         }
     }
 }

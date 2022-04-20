@@ -3,9 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/room-seller-android-app/app/src/main/res/layout/activity_booking_detail.xml" value="0.12318840579710146" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/room-seller-android-app/app/src/main/res/layout/activity_booking_list.xml" value="0.12318840579710146" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/room-seller-android-app/app/src/main/res/layout/activity_booking_detail.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/room-seller-android-app/app/src/main/res/layout/activity_booking_list.xml" value="0.22" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/room-seller-android-app/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/room-seller-android-app/app/src/main/res/layout/booking_detail.xml" value="0.22" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/room-seller-android-app/app/src/main/res/layout/booking_overview.xml" value="0.22" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/room-seller-android-app/app/src/main/res/layout/booking_row.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/room-seller-android-app/app/src/main/res/menu/send_confirmation.xml" value="0.14749893116716545" />
       </map>
     </option>
   </component>
