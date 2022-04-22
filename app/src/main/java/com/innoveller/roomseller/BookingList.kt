@@ -1,22 +1,29 @@
 package com.innoveller.roomseller
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class BookingList : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_booking_list)
 
-        val viewDetailBtn = findViewById<Button>(R.id.btn_view_detail);
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerview);
+        recyclerView.layoutManager = LinearLayoutManager(this);
 
+        val bookingList = MockDataUtils.getBookingList();
+        val adapter = BookingListRowAdapter(bookingList);
 
-        viewDetailBtn.setOnClickListener() {
-            val intents = Intent(this, BookingDetail::class.java);
-            startActivity(intents);
+        adapter.setOnClickListener { view, booking ->
+            val intentToStartDetailActivity = Intent(view?.context, BookingDetail::class.java)
+            intentToStartDetailActivity.putExtra("KEY_NAME", booking)
+            startActivity(intentToStartDetailActivity)
         }
+
+        recyclerView.adapter = adapter;
     }
+
 }

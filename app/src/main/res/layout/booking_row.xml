@@ -1,49 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bookingRowLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="10dp"
-    android:padding="10dp">
+    android:layout_height="wrap_content">
 
-<!--    <TextView-->
-<!--        android:id="@+id/tv_guest_names"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Su Su Aye"-->
-<!--        android:textSize="17sp"-->
-<!--        android:textStyle="bold"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <TextView
+        android:id="@+id/tv_detail_guest_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Su Su Aye"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/tv_time_and_guest"-->
-<!--        android:layout_width="112dp"-->
-<!--        android:layout_height="0dp"-->
-<!--        android:layout_marginEnd="32dp"-->
-<!--        android:text="1 night - 2 guests"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <TextView
+        android:id="@+id/tv_checkin_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Check In"
+        app:layout_constraintStart_toStartOf="@+id/tv_detail_guest_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail_guest_name" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/tv_booking_ref"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="106j-3da7"-->
-<!--        android:textStyle="bold"-->
-<!--        app:layout_constraintBottom_toBottomOf="@+id/tv_booking_ref_label"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/tv_booking_ref_label"-->
-<!--        app:layout_constraintVertical_bias="0.0"-->
-<!--        tools:layout_editor_absoluteX="130dp" />-->
+    <TextView
+        android:id="@+id/tv_checkin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dec 19, 2021"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tv_checkin_label"
+        app:layout_constraintTop_toBottomOf="@+id/tv_checkin_label" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/tv_booking_ref_label"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:text="Booking Reference : "-->
-<!--        app:layout_constraintStart_toStartOf="@+id/tv_guest_names"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/tv_guest_names" />-->
+    <TextView
+        android:id="@+id/tv_booking_ref_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="Booking Ref"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_checkin_label" />
+
+    <TextView
+        android:id="@+id/tv_booking_ref"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="109-20j"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tv_booking_ref_label"
+        app:layout_constraintTop_toBottomOf="@+id/tv_booking_ref_label" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="#dadada"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_checkin" />
+
+    <TextView
+        android:id="@+id/tv_detail_num_night"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1 night - 2 guests - 2 rooms"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_detail_guest_name"
+        app:layout_constraintEnd_toEndOf="@+id/tv_booking_ref_label" />
+
+    <TextView
+        android:id="@+id/tv_checkout_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:text="Check Out"
+        app:layout_constraintEnd_toStartOf="@+id/tv_booking_ref_label"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/tv_checkin_label"
+        app:layout_constraintTop_toTopOf="@+id/tv_checkin_label" />
+
+    <TextView
+        android:id="@+id/tv_checkout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dec 20, 2021"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tv_checkout_label"
+        app:layout_constraintTop_toBottomOf="@+id/tv_checkout_label" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

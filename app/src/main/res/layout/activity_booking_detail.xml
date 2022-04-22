@@ -130,7 +130,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_num_room_label" />
 
             <TextView
-                android:id="@+id/tv_checkIn_date"
+                android:id="@+id/tv_detail_checkin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="64dp"
@@ -140,12 +140,12 @@
                 app:layout_constraintTop_toTopOf="@+id/tv_checkIn_date_label" />
 
             <TextView
-                android:id="@+id/tv_checlOut_date"
+                android:id="@+id/tv_detail_checkout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Jul 24, 2020 "
                 app:layout_constraintBottom_toBottomOf="@+id/tv_checkOut_date_label"
-                app:layout_constraintStart_toStartOf="@+id/tv_checkIn_date"
+                app:layout_constraintStart_toStartOf="@+id/tv_detail_checkin"
                 app:layout_constraintTop_toTopOf="@+id/tv_checkOut_date_label" />
 
             <TextView
@@ -154,11 +154,11 @@
                 android:layout_height="wrap_content"
                 android:text="Jul 14, 2020 04:05 AM "
                 app:layout_constraintBottom_toBottomOf="@+id/tv_booked_date_label"
-                app:layout_constraintStart_toStartOf="@+id/tv_checlOut_date"
+                app:layout_constraintStart_toStartOf="@+id/tv_detail_checkout"
                 app:layout_constraintTop_toTopOf="@+id/tv_booked_date_label" />
 
             <TextView
-                android:id="@+id/tv_num_night"
+                android:id="@+id/tv_detail_num_night"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="3 Night (s) "
@@ -167,21 +167,21 @@
                 app:layout_constraintTop_toTopOf="@+id/tv_num_night_label" />
 
             <TextView
-                android:id="@+id/tv_num_room"
+                android:id="@+id/tv_detail_num_room"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1 Room (s) "
                 app:layout_constraintBottom_toBottomOf="@+id/tv_num_room_label"
-                app:layout_constraintStart_toStartOf="@+id/tv_num_night"
+                app:layout_constraintStart_toStartOf="@+id/tv_detail_num_night"
                 app:layout_constraintTop_toTopOf="@+id/tv_num_room_label" />
 
             <TextView
-                android:id="@+id/tv_num_guest"
+                android:id="@+id/tv_detail_num_guest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2 Guest (s) "
                 app:layout_constraintBottom_toBottomOf="@+id/tv_num_guest_label"
-                app:layout_constraintStart_toStartOf="@+id/tv_num_room"
+                app:layout_constraintStart_toStartOf="@+id/tv_detail_num_room"
                 app:layout_constraintTop_toTopOf="@+id/tv_num_guest_label" />
 
             <!--    Guest Info -->
@@ -253,7 +253,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_email_label" />
 
             <TextView
-                android:id="@+id/tv_guest_name"
+                android:id="@+id/tv_detail_guest_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="75dp"
@@ -268,7 +268,7 @@
                 android:layout_height="wrap_content"
                 android:text="Local"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_nationality_label"
-                app:layout_constraintStart_toStartOf="@+id/tv_guest_name"
+                app:layout_constraintStart_toStartOf="@+id/tv_detail_guest_name"
                 app:layout_constraintTop_toTopOf="@+id/tv_nationality_label" />
 
             <TextView
@@ -419,7 +419,7 @@
                 android:layout_height="wrap_content"
                 android:text="105000.0 "
                 app:layout_constraintBottom_toBottomOf="@+id/tv_total_amount_label1"
-                app:layout_constraintStart_toStartOf="@+id/tv_num_guest"
+                app:layout_constraintStart_toStartOf="@+id/tv_detail_num_guest"
                 app:layout_constraintTop_toTopOf="@+id/tv_total_amount_label1" />
 
             <TextView
@@ -499,7 +499,7 @@
                 app:layout_constraintVertical_bias="1.0" />
 
             <TextView
-                android:id="@+id/tv_booking_refe"
+                android:id="@+id/tv_detail_booking_ref"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="36dp"
