@@ -61,11 +61,11 @@ public class BookingListRowAdapter extends RecyclerView.Adapter<BookingListRowAd
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            guestName = itemView.findViewById(R.id.tv_detail_guest_name);
+            guestName = itemView.findViewById(R.id.tv_row_guest_name);
             bookSummary = itemView.findViewById(R.id.tv_detail_num_night);
-            bookingRef = itemView.findViewById(R.id.tv_booking_ref);
-            checkInDate = itemView.findViewById(R.id.tv_checkin);
-            checkOutDate = itemView.findViewById(R.id.tv_checkout);
+            bookingRef = itemView.findViewById(R.id.tv_row_booking_ref);
+            checkInDate = itemView.findViewById(R.id.tv_row_checkin);
+            checkOutDate = itemView.findViewById(R.id.tv_row_checkout);
             bookingLayout = itemView.findViewById(R.id.bookingRowLayout);
         }
     }

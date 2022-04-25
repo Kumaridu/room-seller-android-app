@@ -10,15 +10,15 @@ import androidx.appcompat.app.AppCompatActivity
 class BookingDetail : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_booking_detail)
+        setContentView(R.layout.activity_booking_origin)
 
-        val bookingRef = findViewById<TextView>(R.id.tv_detail_booking_ref)
-        val checkIn = findViewById<TextView>(R.id.tv_detail_checkin)
-        val checkOut = findViewById<TextView>(R.id.tv_detail_checkout)
-        val numRooms = findViewById<TextView>(R.id.tv_detail_num_room);
-        val numNights = findViewById<TextView>(R.id.tv_detail_num_night)
-        val guestName = findViewById<TextView>(R.id.tv_detail_guest_name)
-
+        val bookingRef = findViewById<TextView>(R.id.tv_booking_ref)
+        val checkIn = findViewById<TextView>(R.id.tv_checkin)
+        val checkOut = findViewById<TextView>(R.id.tv_checkout)
+        val numRooms = findViewById<TextView>(R.id.tv_num_rooms);
+        val numNights = findViewById<TextView>(R.id.tv_num_nights)
+        val guestName = findViewById<TextView>(R.id.tv_guest_name)
+//
         val intentThatStartThisActivity = intent;
         if(intentThatStartThisActivity != null) {
             var booking = intent.getSerializableExtra("KEY_NAME") as Booking?
@@ -26,8 +26,8 @@ class BookingDetail : AppCompatActivity() {
                 bookingRef.text = booking.bookingRef;
                 checkIn.text = booking.checkInDate;
                 checkOut.text = booking.checkoutDate
-                numRooms.text = booking.numRooms.toString()
-                numNights.text = booking.numNights.toString()
+                numRooms.text = booking.numRooms.toString() + " rooms"
+                numNights.text = booking.numNights.toString() + " nights"
                 guestName.text = booking.guestName
             }
 

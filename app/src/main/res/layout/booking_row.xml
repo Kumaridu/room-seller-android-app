@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardElevation="6dp">
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/bookingRowLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/tv_detail_guest_name"
+        android:id="@+id/tv_row_guest_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -20,42 +27,44 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_checkin_label"
+        android:id="@+id/tv_row_checkin_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Check In"
-        app:layout_constraintStart_toStartOf="@+id/tv_detail_guest_name"
-        app:layout_constraintTop_toBottomOf="@+id/tv_detail_guest_name" />
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_row_guest_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_row_guest_name" />
 
     <TextView
-        android:id="@+id/tv_checkin"
+        android:id="@+id/tv_row_checkin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Dec 19, 2021"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/tv_checkin_label"
-        app:layout_constraintTop_toBottomOf="@+id/tv_checkin_label" />
+        app:layout_constraintStart_toStartOf="@+id/tv_row_checkin_label"
+        app:layout_constraintTop_toBottomOf="@+id/tv_row_checkin_label" />
 
     <TextView
-        android:id="@+id/tv_booking_ref_label"
+        android:id="@+id/tv_row_booking_ref_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:text="Booking Ref"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tv_checkin_label" />
+        app:layout_constraintTop_toTopOf="@+id/tv_row_checkin_label" />
 
     <TextView
-        android:id="@+id/tv_booking_ref"
+        android:id="@+id/tv_row_booking_ref"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="109-20j"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/tv_booking_ref_label"
-        app:layout_constraintTop_toBottomOf="@+id/tv_booking_ref_label" />
+        app:layout_constraintStart_toStartOf="@+id/tv_row_booking_ref_label"
+        app:layout_constraintTop_toBottomOf="@+id/tv_row_booking_ref_label" />
 
     <View
         android:id="@+id/view"
@@ -65,36 +74,38 @@
         android:background="#dadada"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_checkin" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_row_checkin" />
 
     <TextView
         android:id="@+id/tv_detail_num_night"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1 night - 2 guests - 2 rooms"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tv_detail_guest_name"
-        app:layout_constraintEnd_toEndOf="@+id/tv_booking_ref_label" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_row_guest_name"
+        app:layout_constraintEnd_toEndOf="@+id/tv_row_booking_ref_label" />
 
     <TextView
-        android:id="@+id/tv_checkout_label"
+        android:id="@+id/tv_row_checkout_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
         android:text="Check Out"
-        app:layout_constraintEnd_toStartOf="@+id/tv_booking_ref_label"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_row_booking_ref_label"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/tv_checkin_label"
-        app:layout_constraintTop_toTopOf="@+id/tv_checkin_label" />
+        app:layout_constraintStart_toEndOf="@+id/tv_row_checkin_label"
+        app:layout_constraintTop_toTopOf="@+id/tv_row_checkin_label" />
 
     <TextView
-        android:id="@+id/tv_checkout"
+        android:id="@+id/tv_row_checkout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Dec 20, 2021"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/tv_checkout_label"
-        app:layout_constraintTop_toBottomOf="@+id/tv_checkout_label" />
+        app:layout_constraintStart_toStartOf="@+id/tv_row_checkout_label"
+        app:layout_constraintTop_toBottomOf="@+id/tv_row_checkout_label" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
