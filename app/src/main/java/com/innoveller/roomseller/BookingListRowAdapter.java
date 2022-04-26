@@ -9,16 +9,21 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.innoveller.roomseller.rest.dtos.BookingDto;
+
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
 public class BookingListRowAdapter extends RecyclerView.Adapter<BookingListRowAdapter.MyViewHolder> {
 
-    private List<Booking> bookingList;
+    private List<BookingDto> bookingList;
     private BookingListRowOnClickListener clickListener;
 
-    public BookingListRowAdapter(List<Booking> bookingList) {
+    public BookingListRowAdapter(List<BookingDto> bookingList) {
         this.bookingList = bookingList;
     }
+
 
     @NonNull
     @Override
@@ -30,12 +35,12 @@ public class BookingListRowAdapter extends RecyclerView.Adapter<BookingListRowAd
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        final Booking booking = bookingList.get(position);
-        holder.guestName.setText(booking.getGuestName());
-        holder.bookSummary.setText(booking.getNightGuestRoomInfo());
-        holder.checkInDate.setText(booking.getCheckInDate());
-        holder.checkOutDate.setText(booking.getCheckoutDate());
-        holder.bookingRef.setText(booking.getBookingRef());
+        final BookingDto booking = bookingList.get(position);
+        holder.guestName.setText(booking.customer.name);
+        holder.bookSummary.setText(booking.numberOfGuests+ "-" + booking.numberOfRooms);
+        holder.checkInDate.setText(booking.checkInDate);
+        holder.checkOutDate.setText(booking.checkOutDate);
+        holder.bookingRef.setText(booking.reference);
 
 
         holder.bookingLayout.setOnClickListener(new View.OnClickListener() {

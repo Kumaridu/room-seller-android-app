@@ -6,6 +6,7 @@ import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.innoveller.roomseller.rest.dtos.BookingDto
 
 class BookingDetail : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,14 +22,15 @@ class BookingDetail : AppCompatActivity() {
 //
         val intentThatStartThisActivity = intent;
         if(intentThatStartThisActivity != null) {
-            var booking = intent.getSerializableExtra("KEY_NAME") as Booking?
+            var booking = intent.getSerializableExtra("KEY_NAME") as BookingDto?
+            println("Booking Detail: " +booking.toString())
             if(booking != null) {
-                bookingRef.text = booking.bookingRef;
+                bookingRef.text = booking.reference;
                 checkIn.text = booking.checkInDate;
-                checkOut.text = booking.checkoutDate
-                numRooms.text = booking.numRooms.toString() + " rooms"
-                numNights.text = booking.numNights.toString() + " nights"
-                guestName.text = booking.guestName
+                checkOut.text = booking.checkOutDate
+                numRooms.text = booking.numberOfRooms.toString() + " rooms"
+                numNights.text = booking.numberOfNights.toString() + " nights"
+                guestName.text = booking.customer.name
             }
 
         }
