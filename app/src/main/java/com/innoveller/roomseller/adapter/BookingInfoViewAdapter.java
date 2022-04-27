@@ -6,9 +6,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.card.MaterialCardView;
 import com.innoveller.roomseller.R;
 import com.innoveller.roomseller.rest.dtos.BookingDto;
 
@@ -34,7 +34,7 @@ public class BookingInfoViewAdapter extends RecyclerView.Adapter<BookingInfoView
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_booking_info,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_booking_info2,parent,false);
 
         return new MyViewHolder(view);
     }
@@ -46,11 +46,10 @@ public class BookingInfoViewAdapter extends RecyclerView.Adapter<BookingInfoView
         String night = booking.numberOfNight > 1 ? "nights" : "night";
         String guest = booking.numberOfGuests > 1 ? "guests" : "guest";
         String room = booking.numberOfRooms > 1 ? "rooms" : "room";
-        String bookSum = new StringBuilder().append(booking.numberOfNight).append(" ").append(night).append("-")
-                .append(booking.numberOfGuests).append(" ").append(guest).append("-")
+        String bookSum = new StringBuilder().append(booking.numberOfNight).append(" ").append(night).append(" - ")
                 .append(booking.numberOfRooms).append(" ").append(room).toString();
 
-        holder.guestName.setText(booking.customer.name);
+        holder.guestName.setText(booking.customer.name + " | " + booking.numberOfGuests + " " + guest);
         holder.bookSummary.setText(bookSum);
         holder.checkInDate.setText(booking.checkInDate);
         holder.checkOutDate.setText(booking.checkOutDate);
@@ -72,16 +71,23 @@ public class BookingInfoViewAdapter extends RecyclerView.Adapter<BookingInfoView
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         private TextView guestName, bookSummary, bookingRef, checkInDate, checkOutDate;
-        private ConstraintLayout bookingLayout;
+        private MaterialCardView bookingLayout;
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            guestName = itemView.findViewById(R.id.tv_row_guest_name);
-            bookSummary = itemView.findViewById(R.id.tv_detail_num_night);
-            bookingRef = itemView.findViewById(R.id.tv_row_booking_ref);
-            checkInDate = itemView.findViewById(R.id.tv_row_checkin);
-            checkOutDate = itemView.findViewById(R.id.tv_row_checkout);
-            bookingLayout = itemView.findViewById(R.id.bookingRowLayout);
+            guestName = itemView.findViewById(R.id.tv_test_guest_name_num_guest);
+            bookSummary = itemView.findViewById(R.id.tv_test_nights_and_rooms);
+            bookingRef = itemView.findViewById(R.id.tv_test_booking_ref);
+            checkInDate = itemView.findViewById(R.id.tv_test_checkIn);
+            checkOutDate = itemView.findViewById(R.id.tv_test_checkout);
+            bookingLayout = itemView.findViewById(R.id.bookingRowLayout2);
+
+//            guestName = itemView.findViewById(R.id.tv_test_guest_name_num_guest);
+//            bookSummary = itemView.findViewById(R.id.tv_detail_num_night);
+//            bookingRef = itemView.findViewById(R.id.tv_row_booking_ref);
+//            checkInDate = itemView.findViewById(R.id.tv_row_checkin);
+//            checkOutDate = itemView.findViewById(R.id.tv_row_checkout);
+//            bookingLayout = itemView.findViewById(R.id.bookingRowLayout);
         }
     }
 }
