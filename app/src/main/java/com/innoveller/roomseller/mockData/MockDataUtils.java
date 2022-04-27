@@ -5,23 +5,23 @@ import java.util.List;
 
 public class MockDataUtils {
 
-    public static List<Booking> getBookingList() {
-        List<Booking> bookings = new ArrayList<>();
-        Booking booking1 = new Booking("Su Su Aye",2,2,1,"Dec 19, 2021", "Dec 21, 2021","109-20j");
-        Booking booking2 = new Booking("Zin Zin",1,2,1,"Nov 1, 2021", "Nov 2, 2021","101-40e");
-        Booking booking3 = new Booking("Aye Aye",2,3,1,"Aug 19, 2021", "Aug 21, 2021","10s-22d");
-        Booking booking4 = new Booking("Ma Ma",1,2,1,"Dec 20, 2021", "Dec 21, 2021","20r-10k");
-        Booking booking5 = new Booking("Khin Myat Aye",2,2,1,"Dec 19, 2021", "Dec 21, 2021","20d-203");
-        Booking booking6 = new Booking("Khaing Zin",2,2,1,"Nov 19, 2021", "Nov 21, 2021","12s-2dd");
-        Booking booking7 = new Booking("Su Su Aye",2,2,1,"Dec 19, 2021", "Dec 21, 2021","109-20j");
+    public static List<BookingFake> getBookingList() {
+        List<BookingFake> bookings = new ArrayList<>();
+        BookingFake booking1 = new BookingFake("Su Su Aye",2,2,1,"Dec 19, 2021", "Dec 21, 2021","109-20j");
+        BookingFake booking2 = new BookingFake("Zin Zin",1,2,1,"Nov 1, 2021", "Nov 2, 2021","101-40e");
+        BookingFake booking3 = new BookingFake("Aye Aye",2,3,1,"Aug 19, 2021", "Aug 21, 2021","10s-22d");
+        BookingFake booking4 = new BookingFake("Ma Ma",1,2,1,"Dec 20, 2021", "Dec 21, 2021","20r-10k");
+        BookingFake booking5 = new BookingFake("Khin Myat Aye",2,2,1,"Dec 19, 2021", "Dec 21, 2021","20d-203");
+        BookingFake booking6 = new BookingFake("Khaing Zin",2,2,1,"Nov 19, 2021", "Nov 21, 2021","12s-2dd");
+        BookingFake booking7 = new BookingFake("Su Su Aye",2,2,1,"Dec 19, 2021", "Dec 21, 2021","109-20j");
 
-        Booking booking8 = new Booking("Su Su Aye",2,2,1,"Dec 19, 2021", "Dec 21, 2021","109-20j");
-        Booking booking9 = new Booking("Zin Zin",1,2,1,"Nov 1, 2021", "Nov 2, 2021","101-40e");
-        Booking booking10 = new Booking("Aye Aye",2,3,1,"Aug 19, 2021", "Aug 21, 2021","10s-22d");
-        Booking booking11 = new Booking("Ma Ma",1,2,1,"Dec 20, 2021", "Dec 21, 2021","20r-10k");
-        Booking booking12 = new Booking("Khin Myat Aye",2,2,1,"Dec 19, 2021", "Dec 21, 2021","20d-203");
-        Booking booking13 = new Booking("Khaing Zin",2,2,1,"Nov 19, 2021", "Nov 21, 2021","12s-2dd");
-        Booking booking14 = new Booking("Su Su Aye",2,2,1,"Dec 19, 2021", "Dec 21, 2021","109-20j");
+        BookingFake booking8 = new BookingFake("Su Su Aye",2,2,1,"Dec 19, 2021", "Dec 21, 2021","109-20j");
+        BookingFake booking9 = new BookingFake("Zin Zin",1,2,1,"Nov 1, 2021", "Nov 2, 2021","101-40e");
+        BookingFake booking10 = new BookingFake("Aye Aye",2,3,1,"Aug 19, 2021", "Aug 21, 2021","10s-22d");
+        BookingFake booking11 = new BookingFake("Ma Ma",1,2,1,"Dec 20, 2021", "Dec 21, 2021","20r-10k");
+        BookingFake booking12 = new BookingFake("Khin Myat Aye",2,2,1,"Dec 19, 2021", "Dec 21, 2021","20d-203");
+        BookingFake booking13 = new BookingFake("Khaing Zin",2,2,1,"Nov 19, 2021", "Nov 21, 2021","12s-2dd");
+        BookingFake booking14 = new BookingFake("Su Su Aye",2,2,1,"Dec 19, 2021", "Dec 21, 2021","109-20j");
 
         bookings.add(booking1);
         bookings.add(booking2);

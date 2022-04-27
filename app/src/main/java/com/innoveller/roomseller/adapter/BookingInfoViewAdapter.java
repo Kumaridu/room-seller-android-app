@@ -10,21 +10,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.card.MaterialCardView;
 import com.innoveller.roomseller.R;
-import com.innoveller.roomseller.rest.dtos.BookingDto;
+import com.innoveller.roomseller.rest.dtos.Booking;
 
 import java.util.List;
 
 public class BookingInfoViewAdapter extends RecyclerView.Adapter<BookingInfoViewAdapter.MyViewHolder> {
 
-    private List<BookingDto> bookingList;
+    private List<Booking> bookingList;
     private OnBookingClickListener onBookingClickListener;
 
-    public BookingInfoViewAdapter(List<BookingDto> bookingList) {
+    public BookingInfoViewAdapter(List<Booking> bookingList) {
         this.bookingList = bookingList;
     }
 
     public interface OnBookingClickListener {
-        void onClick(View view, BookingDto booking);
+        void onClick(View view, Booking booking);
     }
 
     public void setOnClickListener(OnBookingClickListener clickListener) {
@@ -42,7 +42,7 @@ public class BookingInfoViewAdapter extends RecyclerView.Adapter<BookingInfoView
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        final BookingDto booking = bookingList.get(position);
+        final Booking booking = bookingList.get(position);
         String night = booking.numberOfNight > 1 ? "nights" : "night";
         String guest = booking.numberOfGuests > 1 ? "guests" : "guest";
         String room = booking.numberOfRooms > 1 ? "rooms" : "room";

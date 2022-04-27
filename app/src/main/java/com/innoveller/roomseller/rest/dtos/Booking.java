@@ -1,12 +1,11 @@
 package com.innoveller.roomseller.rest.dtos;
 
-import java.io.Serializable;
 import java.util.List;
 
-public class BookingDto implements Serializable {
+public class Booking {
     public int id;
     public String reference;
-    public CustomerDto customer;
+    public Customer customer;
     public HotelInfo hotelInfo;
     public String bookingDate;
     public String checkInDate;

@@ -2,7 +2,7 @@ package com.innoveller.roomseller.rest.dtos;
 
 import java.io.Serializable;
 
-public class Money implements Serializable {
+public class Money {
     public double amount;
     public String currency;
 

@@ -1,6 +1,6 @@
 package com.innoveller.roomseller.rest.api;
 
-import com.innoveller.roomseller.rest.dtos.BookingDto;
+import com.innoveller.roomseller.rest.dtos.Booking;
 
 import java.util.List;
 
@@ -11,9 +11,9 @@ import retrofit2.http.Path;
 public interface RestApi {
 
     @GET("bookings")
-    Call<List<BookingDto>> getBookingList();
+    Call<List<Booking>> getBookingList();
 
     @GET("bookings/{booking_id}")
-    Call<BookingDto> getBookingById(@Path("booking_id") String bookingId);
+    Call<Booking> getBookingById(@Path("booking_id") String bookingId);
 
 }

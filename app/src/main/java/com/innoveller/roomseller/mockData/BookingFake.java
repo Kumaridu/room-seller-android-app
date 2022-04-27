@@ -3,7 +3,7 @@ package com.innoveller.roomseller.mockData;
 
 import java.io.Serializable;
 
-public class Booking implements Serializable {
+public class BookingFake implements Serializable {
 
     private String guestName;
     private int numNights;
@@ -13,8 +13,8 @@ public class Booking implements Serializable {
     private String checkoutDate;
     private String bookingRef;
 
-    public Booking(String guestName, int numNights, int numGuests, int numRooms, String checkInDate,
-                   String checkoutDate, String bookingRef) {
+    public BookingFake(String guestName, int numNights, int numGuests, int numRooms, String checkInDate,
+                       String checkoutDate, String bookingRef) {
         this.guestName = guestName;
         this.numNights = numNights;
         this.numGuests = numGuests;

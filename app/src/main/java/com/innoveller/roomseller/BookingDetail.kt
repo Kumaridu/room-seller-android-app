@@ -1,6 +1,5 @@
 package com.innoveller.roomseller
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -10,15 +9,12 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintSet
 import com.innoveller.roomseller.rest.api.RestApi
 import com.innoveller.roomseller.rest.api.RestApiBuilder
-import com.innoveller.roomseller.rest.dtos.BookingDto
-import org.w3c.dom.Text
+import com.innoveller.roomseller.rest.dtos.Booking
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.time.temporal.TemporalAmount
 
 class BookingDetail : AppCompatActivity() {
 
@@ -136,8 +132,8 @@ class BookingDetail : AppCompatActivity() {
     private fun getBookingById(bookingId : String) {
         val bookingCall = restApi.getBookingById(bookingId)
 
-        bookingCall.enqueue(object: Callback<BookingDto> {
-            override fun onResponse(call: Call<BookingDto>, response: Response<BookingDto>) {
+        bookingCall.enqueue(object: Callback<Booking> {
+            override fun onResponse(call: Call<Booking>, response: Response<Booking>) {
                 loading.visibility = View.GONE
                 layout.visibility = View.VISIBLE
                 if(response.isSuccessful) {
@@ -151,14 +147,14 @@ class BookingDetail : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<BookingDto>, t: Throwable) {
+            override fun onFailure(call: Call<Booking>, t: Throwable) {
                 println("got error")
                 t.printStackTrace()
             }
         })
     }
 
-    private fun mapDtoToView(booking: BookingDto) {
+    private fun mapDtoToView(booking: Booking) {
         bookingRef.text = booking.reference;
         numGuests.text = booking.numberOfGuests.toString() + if(booking.numberOfGuests > 1) " Guests" else " Guest"
         bookedOn.text = booking.bookingDate

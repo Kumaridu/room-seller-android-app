@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.innoveller.roomseller.adapter.BookingInfoViewAdapter
 import com.innoveller.roomseller.rest.api.RestApi
 import com.innoveller.roomseller.rest.api.RestApiBuilder
-import com.innoveller.roomseller.rest.dtos.BookingDto
+import com.innoveller.roomseller.rest.dtos.Booking
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -44,8 +44,8 @@ class BookingList : AppCompatActivity() {
     private fun getBookingList() {
         val bookingListCall = restApi.bookingList
 
-        bookingListCall.enqueue(object: Callback<List<BookingDto>> {
-            override fun onResponse(call: Call<List<BookingDto>>,response: Response<List<BookingDto>>) {
+        bookingListCall.enqueue(object: Callback<List<Booking>> {
+            override fun onResponse(call: Call<List<Booking>>, response: Response<List<Booking>>) {
                 loadingBar.visibility = View.GONE
                 if(response.isSuccessful) {
                     val bookingListResBody = response.body()
@@ -66,7 +66,7 @@ class BookingList : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<List<BookingDto>>, t: Throwable) {
+            override fun onFailure(call: Call<List<Booking>>, t: Throwable) {
                 Log.d(TAG, "onFailure: $t")
                 t.printStackTrace()
             }
