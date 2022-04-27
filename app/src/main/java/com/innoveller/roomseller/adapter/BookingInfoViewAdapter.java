@@ -1,4 +1,4 @@
-package com.innoveller.roomseller;
+package com.innoveller.roomseller.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,35 +9,49 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.innoveller.roomseller.R;
 import com.innoveller.roomseller.rest.dtos.BookingDto;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class BookingListRowAdapter extends RecyclerView.Adapter<BookingListRowAdapter.MyViewHolder> {
+public class BookingInfoViewAdapter extends RecyclerView.Adapter<BookingInfoViewAdapter.MyViewHolder> {
 
     private List<BookingDto> bookingList;
-    private BookingListRowOnClickListener clickListener;
+    private OnBookingClickListener onBookingClickListener;
 
-    public BookingListRowAdapter(List<BookingDto> bookingList) {
+    public BookingInfoViewAdapter(List<BookingDto> bookingList) {
         this.bookingList = bookingList;
     }
 
+    public interface OnBookingClickListener {
+        void onClick(View view, BookingDto booking);
+    }
+
+    public void setOnClickListener(OnBookingClickListener clickListener) {
+        this.onBookingClickListener = clickListener;
+    }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.booking_row,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_booking_info,parent,false);
 
         return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+
         final BookingDto booking = bookingList.get(position);
+        String night = booking.numberOfNight > 1 ? "nights" : "night";
+        String guest = booking.numberOfGuests > 1 ? "guests" : "guest";
+        String room = booking.numberOfRooms > 1 ? "rooms" : "room";
+        String bookSum = new StringBuilder().append(booking.numberOfNight).append(" ").append(night).append("-")
+                .append(booking.numberOfGuests).append(" ").append(guest).append("-")
+                .append(booking.numberOfRooms).append(" ").append(room).toString();
+
         holder.guestName.setText(booking.customer.name);
-        holder.bookSummary.setText(booking.numberOfGuests+ "-" + booking.numberOfRooms);
+        holder.bookSummary.setText(bookSum);
         holder.checkInDate.setText(booking.checkInDate);
         holder.checkOutDate.setText(booking.checkOutDate);
         holder.bookingRef.setText(booking.reference);
@@ -46,7 +60,7 @@ public class BookingListRowAdapter extends RecyclerView.Adapter<BookingListRowAd
         holder.bookingLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clickListener.onClick(v, booking);
+                onBookingClickListener.onClick(v, booking);
             }
         });
     }
@@ -54,10 +68,6 @@ public class BookingListRowAdapter extends RecyclerView.Adapter<BookingListRowAd
     @Override
     public int getItemCount() {
         return bookingList.size();
-    }
-
-    public void setOnClickListener(BookingListRowOnClickListener clickListener) {
-        this.clickListener = clickListener;
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {

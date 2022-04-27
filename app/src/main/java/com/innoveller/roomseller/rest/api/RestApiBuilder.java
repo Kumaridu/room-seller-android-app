@@ -7,7 +7,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RestApiBuilder {
-    private static final String BASE_URL = "https://shwebooking.free.beeceptor.com/";
+    private static final String BASE_URL = "https://6268a3b2f2c0cdabac01fc11.mockapi.io/api/v1/";
 
     public static RestApi buildRestApi() {
         Gson gson = new GsonBuilder()

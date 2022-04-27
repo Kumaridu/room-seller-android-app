@@ -1,4 +1,4 @@
-package com.innoveller.roomseller;
+package com.innoveller.roomseller.mockData;
 
 
 import java.io.Serializable;

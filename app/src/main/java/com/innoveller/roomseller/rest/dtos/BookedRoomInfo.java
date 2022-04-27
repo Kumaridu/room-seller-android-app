@@ -1,6 +1,8 @@
 package com.innoveller.roomseller.rest.dtos;
 
-public class BookedRoomInfo {
+import java.io.Serializable;
+
+public class BookedRoomInfo implements Serializable {
     public String roomTypeName;
     public int numberOfAdult;
     public int numberOfChild;
