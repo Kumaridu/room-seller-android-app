@@ -13,7 +13,8 @@
 
         <activity
             android:name=".BookingList"
-            android:exported="false" />
+            android:exported="false"
+            android:launchMode="singleTask"/>
 
         <activity android:name=".MainActivity">
             <intent-filter>

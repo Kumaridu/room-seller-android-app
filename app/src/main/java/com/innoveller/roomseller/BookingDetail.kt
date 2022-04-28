@@ -34,8 +34,7 @@ class BookingDetail : AppCompatActivity() {
     lateinit var bookedOn: TextView
     lateinit var checkIn: TextView
     lateinit var checkOut: TextView
-    lateinit var numRooms: TextView
-    lateinit var numNights: TextView
+    lateinit var numNightAndRoom: TextView
 
 
     //Room TypeInfo
@@ -58,7 +57,6 @@ class BookingDetail : AppCompatActivity() {
     lateinit var taxes: TextView
     lateinit var convenienceFee: TextView
     lateinit var paymentAmount: TextView
-    lateinit var paymentCurrency: TextView
     lateinit var gatewayType: TextView
     lateinit var transactionId: TextView
     lateinit var commission: TextView
@@ -67,50 +65,48 @@ class BookingDetail : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_booking_detail_v3)
+        setContentView(R.layout.activity_booking_detail)
 
-//        restApi = RestApiBuilder.buildRestApi()
-//
-//        bookingRef = findViewById(R.id.tv_booking_ref)
-//        numGuests = findViewById(R.id.tv_num_guests)
-//        bookedOn = findViewById(R.id.tv_bookedon)
-//        checkIn = findViewById(R.id.tv_checkin)
-//        checkOut = findViewById(R.id.tv_checkout)
-//        numRooms = findViewById(R.id.tv_num_rooms);
-//        numNights = findViewById(R.id.tv_num_nights)
-//
-//        maxOccupancy = findViewById(R.id.tv_max_occupancy)
-//        ratePlan = findViewById(R.id.tv_rate_plan)
-//        extraBedRate = findViewById(R.id.tv_extra_bed)
-//        subTotal = findViewById(R.id.tv_sub_total)
-//
-//        guestName = findViewById(R.id.tv_guest_name)
-//        nationality = findViewById(R.id.tv_nationality)
-//        phoneNo = findViewById(R.id.tv_phone_no)
-//        email = findViewById(R.id.tv_email)
-//        specialRequest = findViewById(R.id.tv_special_request)
-//
-//        paymentType = findViewById(R.id.tv_payment_type)
-//        totalAmount = findViewById(R.id.tv_total_amount)
-//        discount = findViewById(R.id.tv_discount)
-//        taxes = findViewById(R.id.tv_taxes)
-//        convenienceFee = findViewById(R.id.tv_convenience_fee)
-//        paymentAmount = findViewById(R.id.tv_payment_amount)
-//        paymentCurrency = findViewById(R.id.tv_payment_currency)
-//        gatewayType = findViewById(R.id.tv_gateway_type)
-//        transactionId = findViewById(R.id.tv_transaction_id)
-//        commission = findViewById(R.id.tv_commission)
-//
-//        loading = findViewById(R.id.pb_loading)
-//        layout = findViewById(R.id.bookingDetail)
-//
-//        val bookingId: String? = intent?.getStringExtra(INTENT_KEY_BOOKING_ID)
-//        println("This is booking id: $bookingId")
-//
-//        if(bookingId != null) {
-//            Log.d(TAG, "onCreate: Going to request booking info via Id: $bookingId")
-//            getBookingById(bookingId)
-//        }
+        restApi = RestApiBuilder.buildRestApi()
+
+        bookingRef = findViewById(R.id.tv_booking_ref)
+        numGuests = findViewById(R.id.tv_num_guests)
+        bookedOn = findViewById(R.id.tv_booked_on)
+        checkIn = findViewById(R.id.tv_check_in)
+        checkOut = findViewById(R.id.tv_checkout)
+        numNightAndRoom = findViewById(R.id.tv_num_nighs_and_rooms);
+
+        maxOccupancy = findViewById(R.id.tv_max_occupancy)
+        ratePlan = findViewById(R.id.tv_rate_plan)
+        extraBedRate = findViewById(R.id.tv_extra_bed_rate)
+        subTotal = findViewById(R.id.tv_sub_total)
+
+        guestName = findViewById(R.id.tv_guest_name)
+        nationality = findViewById(R.id.tv_nationality)
+        phoneNo = findViewById(R.id.tv_phone_number)
+        email = findViewById(R.id.tv_email)
+        specialRequest = findViewById(R.id.tv_commission_info_label)
+
+        paymentType = findViewById(R.id.tv_payment_type)
+        totalAmount = findViewById(R.id.tv_payment_amount)
+        discount = findViewById(R.id.tv_discount)
+        taxes = findViewById(R.id.tv_taxes)
+        convenienceFee = findViewById(R.id.tv_convenience_fee)
+        paymentAmount = findViewById(R.id.tv_payment_amount)
+        gatewayType = findViewById(R.id.tv_gateway_type)
+        transactionId = findViewById(R.id.tv_transaction_id_label)
+        commission = findViewById(R.id.tv_commission)
+
+        loading = findViewById(R.id.pb_loading)
+        layout = findViewById(R.id.bookingDetail)
+
+        val bookingId: String? = intent?.getStringExtra(INTENT_KEY_BOOKING_ID)
+        println("This is booking id: $bookingId")
+
+        if(bookingId != null) {
+            Log.d(TAG, "onCreate: Going to request booking info via Id: $bookingId")
+            getBookingById(bookingId)
+        }
 
     }
 
@@ -160,8 +156,7 @@ class BookingDetail : AppCompatActivity() {
         bookedOn.text = booking.bookingDate
         checkIn.text = booking.checkInDate;
         checkOut.text = booking.checkOutDate
-        numRooms.text = booking.numberOfRooms.toString() + " rooms"
-        numNights.text = booking.numberOfNight.toString() + " nights"
+        numNightAndRoom.text = booking.numberOfNight.toString() + " nights | " + booking.numberOfRooms + " rooms"
 
         maxOccupancy.text = "N/A"
         ratePlan.text = "N/A"
@@ -175,7 +170,6 @@ class BookingDetail : AppCompatActivity() {
         specialRequest.text = booking.customer.specialRequest
 
         paymentAmount.text = booking.payment.amount.amount.toString()
-        paymentCurrency.text = booking.payment.amount.currency
         gatewayType.text = booking.payment.method
     }
 }

@@ -21,7 +21,7 @@
             android:padding="16dp">
 
             <TextView
-                android:id="@+id/textView27"
+                android:id="@+id/tv_room_type_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -33,81 +33,81 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView28"
+                android:id="@+id/tv_max_occupancy_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Max Occupancy"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView27" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_room_type_label" />
 
             <TextView
-                android:id="@+id/textView29"
+                android:id="@+id/tv_max_occupancy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:layout_constraintStart_toStartOf="@+id/textView28"
-                app:layout_constraintTop_toBottomOf="@+id/textView28" />
+                app:layout_constraintStart_toStartOf="@+id/tv_max_occupancy_label"
+                app:layout_constraintTop_toBottomOf="@+id/tv_max_occupancy_label" />
 
             <TextView
-                android:id="@+id/textView30"
+                android:id="@+id/tv_rate_plan_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Rate Plan"
-                app:layout_constraintEnd_toEndOf="@+id/textView31"
-                app:layout_constraintTop_toTopOf="@+id/textView28" />
+                app:layout_constraintEnd_toEndOf="@+id/tv_rate_plan"
+                app:layout_constraintTop_toTopOf="@+id/tv_max_occupancy_label" />
 
             <TextView
-                android:id="@+id/textView31"
+                android:id="@+id/tv_rate_plan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Standard Rate"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView29" />
+                app:layout_constraintTop_toTopOf="@+id/tv_max_occupancy" />
 
             <TextView
-                android:id="@+id/textView32"
+                android:id="@+id/tv_one_extra_bed_rate_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="One Extra Bed Rate"
-                app:layout_constraintStart_toStartOf="@+id/textView28"
-                app:layout_constraintTop_toBottomOf="@+id/textView29" />
+                app:layout_constraintStart_toStartOf="@+id/tv_max_occupancy_label"
+                app:layout_constraintTop_toBottomOf="@+id/tv_max_occupancy" />
 
             <TextView
-                android:id="@+id/textView53"
+                android:id="@+id/tv_extra_bed_rate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="N/A"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:layout_constraintStart_toStartOf="@+id/textView28"
-                app:layout_constraintTop_toBottomOf="@+id/textView32" />
+                app:layout_constraintStart_toStartOf="@+id/tv_max_occupancy_label"
+                app:layout_constraintTop_toBottomOf="@+id/tv_one_extra_bed_rate_label" />
 
             <TextView
-                android:id="@+id/textView54"
+                android:id="@+id/tv_sub_total_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sub Total"
-                app:layout_constraintEnd_toEndOf="@+id/textView31"
-                app:layout_constraintTop_toTopOf="@+id/textView32" />
+                app:layout_constraintEnd_toEndOf="@+id/tv_rate_plan"
+                app:layout_constraintTop_toTopOf="@+id/tv_one_extra_bed_rate_label" />
 
             <TextView
-                android:id="@+id/textView55"
+                android:id="@+id/tv_sub_total"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="MMK 105000.0"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintEnd_toStartOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/textView54" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_sub_total_label" />
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="@+id/textView54"
-                app:layout_constraintTop_toTopOf="@+id/textView55"
+                app:layout_constraintEnd_toEndOf="@+id/tv_sub_total_label"
+                app:layout_constraintTop_toTopOf="@+id/tv_sub_total"
                 app:srcCompat="@drawable/ic_down_arrow" />
 
             <TableLayout
@@ -115,10 +115,10 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="24dp"
                 android:background="@android:color/white"
-                app:layout_constraintLeft_toLeftOf="@+id/textView53"
-                app:layout_constraintRight_toRightOf="@+id/textView54"
-                app:layout_constraintStart_toStartOf="@+id/textView53"
-                app:layout_constraintTop_toBottomOf="@+id/textView53">
+                app:layout_constraintLeft_toLeftOf="@+id/tv_extra_bed_rate"
+                app:layout_constraintRight_toRightOf="@+id/tv_sub_total_label"
+                app:layout_constraintStart_toStartOf="@+id/tv_extra_bed_rate"
+                app:layout_constraintTop_toBottomOf="@+id/tv_extra_bed_rate">
 
                 <TableRow
                     android:layout_width="match_parent"

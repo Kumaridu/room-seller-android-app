@@ -34,7 +34,7 @@ public class BookingInfoViewAdapter extends RecyclerView.Adapter<BookingInfoView
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_booking_info2,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_booking_info,parent,false);
 
         return new MyViewHolder(view);
     }
@@ -75,11 +75,11 @@ public class BookingInfoViewAdapter extends RecyclerView.Adapter<BookingInfoView
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            guestName = itemView.findViewById(R.id.tv_test_guest_name_num_guest);
-            bookSummary = itemView.findViewById(R.id.tv_test_nights_and_rooms);
-            bookingRef = itemView.findViewById(R.id.tv_test_booking_ref);
-            checkInDate = itemView.findViewById(R.id.tv_test_checkIn);
-            checkOutDate = itemView.findViewById(R.id.tv_test_checkout);
+            guestName = itemView.findViewById(R.id.tv_row_guest_name_num_guest);
+            bookSummary = itemView.findViewById(R.id.tv_nights_and_rooms);
+            bookingRef = itemView.findViewById(R.id.tv_row_booking_ref);
+            checkInDate = itemView.findViewById(R.id.tv_checkIn);
+            checkOutDate = itemView.findViewById(R.id.tv_row_checkout);
             bookingLayout = itemView.findViewById(R.id.bookingRowLayout2);
 
 //            guestName = itemView.findViewById(R.id.tv_test_guest_name_num_guest);
