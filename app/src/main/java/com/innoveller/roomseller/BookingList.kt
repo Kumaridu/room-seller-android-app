@@ -27,6 +27,13 @@ class BookingList : AppCompatActivity() {
      private lateinit var adapter: BookingInfoViewAdapter
      private lateinit var recyclerView: RecyclerView
      private lateinit var loadingBar: ProgressBar
+     private lateinit var layoutManager : LinearLayoutManager
+
+     // for infinite scroll
+     private var loading = true
+     var pastVisibleItems = 0
+     var visibleItemCount:Int = 0
+     var totalItemCount:Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,10 +42,32 @@ class BookingList : AppCompatActivity() {
         loadingBar = findViewById(R.id.pb_loading)
         restApi = RestApiBuilder.buildRestApi()
         recyclerView = findViewById(R.id.recyclerview)
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = layoutManager
 
 
         getBookingList()
+
+        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                if(dy > 0) {
+                    visibleItemCount = recyclerView.childCount
+                    totalItemCount = layoutManager.itemCount
+                    pastVisibleItems = layoutManager.findFirstCompletelyVisibleItemPosition()
+
+                    if (loading) {
+                        if ((visibleItemCount + pastVisibleItems) >= totalItemCount) {
+                            loading = false;
+                            Log.v("...", "Last Item Wow !");
+                            // fetch new data
+                            getBookingList()
+                            loading = true;
+                        }
+                    }
+                }
+            }
+        })
     }
 
     private fun getBookingList() {

@@ -67,50 +67,50 @@ class BookingDetail : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_booking_origin)
+        setContentView(R.layout.activity_booking_detail_v3)
 
-        restApi = RestApiBuilder.buildRestApi()
-
-        bookingRef = findViewById(R.id.tv_booking_ref)
-        numGuests = findViewById(R.id.tv_num_guests)
-        bookedOn = findViewById(R.id.tv_bookedon)
-        checkIn = findViewById(R.id.tv_checkin)
-        checkOut = findViewById(R.id.tv_checkout)
-        numRooms = findViewById(R.id.tv_num_rooms);
-        numNights = findViewById(R.id.tv_num_nights)
-
-        maxOccupancy = findViewById(R.id.tv_max_occupancy)
-        ratePlan = findViewById(R.id.tv_rate_plan)
-        extraBedRate = findViewById(R.id.tv_extra_bed)
-        subTotal = findViewById(R.id.tv_sub_total)
-
-        guestName = findViewById(R.id.tv_guest_name)
-        nationality = findViewById(R.id.tv_nationality)
-        phoneNo = findViewById(R.id.tv_phone_no)
-        email = findViewById(R.id.tv_email)
-        specialRequest = findViewById(R.id.tv_special_request)
-
-        paymentType = findViewById(R.id.tv_payment_type)
-        totalAmount = findViewById(R.id.tv_total_amount)
-        discount = findViewById(R.id.tv_discount)
-        taxes = findViewById(R.id.tv_taxes)
-        convenienceFee = findViewById(R.id.tv_convenience_fee)
-        paymentAmount = findViewById(R.id.tv_payment_amount)
-        paymentCurrency = findViewById(R.id.tv_payment_currency)
-        gatewayType = findViewById(R.id.tv_gateway_type)
-        transactionId = findViewById(R.id.tv_transaction_id)
-        commission = findViewById(R.id.tv_commission)
-
-        loading = findViewById(R.id.pb_loading)
-        layout = findViewById(R.id.bookingDetail)
-
-        val bookingId: String? = intent?.getStringExtra(INTENT_KEY_BOOKING_ID)
-        println("This is booking id: $bookingId")
-
-        if(bookingId != null) {
-            Log.d(TAG, "onCreate: Going to request booking info via Id: $bookingId")
-            getBookingById(bookingId)
-        }
+//        restApi = RestApiBuilder.buildRestApi()
+//
+//        bookingRef = findViewById(R.id.tv_booking_ref)
+//        numGuests = findViewById(R.id.tv_num_guests)
+//        bookedOn = findViewById(R.id.tv_bookedon)
+//        checkIn = findViewById(R.id.tv_checkin)
+//        checkOut = findViewById(R.id.tv_checkout)
+//        numRooms = findViewById(R.id.tv_num_rooms);
+//        numNights = findViewById(R.id.tv_num_nights)
+//
+//        maxOccupancy = findViewById(R.id.tv_max_occupancy)
+//        ratePlan = findViewById(R.id.tv_rate_plan)
+//        extraBedRate = findViewById(R.id.tv_extra_bed)
+//        subTotal = findViewById(R.id.tv_sub_total)
+//
+//        guestName = findViewById(R.id.tv_guest_name)
+//        nationality = findViewById(R.id.tv_nationality)
+//        phoneNo = findViewById(R.id.tv_phone_no)
+//        email = findViewById(R.id.tv_email)
+//        specialRequest = findViewById(R.id.tv_special_request)
+//
+//        paymentType = findViewById(R.id.tv_payment_type)
+//        totalAmount = findViewById(R.id.tv_total_amount)
+//        discount = findViewById(R.id.tv_discount)
+//        taxes = findViewById(R.id.tv_taxes)
+//        convenienceFee = findViewById(R.id.tv_convenience_fee)
+//        paymentAmount = findViewById(R.id.tv_payment_amount)
+//        paymentCurrency = findViewById(R.id.tv_payment_currency)
+//        gatewayType = findViewById(R.id.tv_gateway_type)
+//        transactionId = findViewById(R.id.tv_transaction_id)
+//        commission = findViewById(R.id.tv_commission)
+//
+//        loading = findViewById(R.id.pb_loading)
+//        layout = findViewById(R.id.bookingDetail)
+//
+//        val bookingId: String? = intent?.getStringExtra(INTENT_KEY_BOOKING_ID)
+//        println("This is booking id: $bookingId")
+//
+//        if(bookingId != null) {
+//            Log.d(TAG, "onCreate: Going to request booking info via Id: $bookingId")
+//            getBookingById(bookingId)
+//        }
 
     }
 

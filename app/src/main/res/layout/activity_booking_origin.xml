@@ -9,7 +9,7 @@
     <ProgressBar
         android:id="@+id/pb_loading"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"/>
 
     <ScrollView
@@ -22,8 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="10dp"
-            android:id="@+id/bookingDetail"
-            android:visibility="gone">
+            android:id="@+id/bookingDetail">
 
             <!-- Booking Details   -->
             <TextView
