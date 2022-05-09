@@ -25,6 +25,16 @@
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/room-seller-android-app/app/src/main/res/layout/payment_summary.xml" value="0.33014354066985646" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/room-seller-android-app/app/src/main/res/layout/room_type.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/room-seller-android-app/app/src/main/res/menu/send_confirmation.xml" value="0.14749893116716545" />
+        <entry key="..\:/Users/Lenovo/Desktop/room-seller-android-app/app/src/main/res/drawable-v24/border_bottom_gray_with_bg_white.xml" value="0.2045" />
+        <entry key="..\:/Users/Lenovo/Desktop/room-seller-android-app/app/src/main/res/drawable-v24/ic_down_arrow.xml" value="0.2045" />
+        <entry key="..\:/Users/Lenovo/Desktop/room-seller-android-app/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2045" />
+        <entry key="..\:/Users/Lenovo/Desktop/room-seller-android-app/app/src/main/res/drawable-v24/shape_rectangle_stroke.xml" value="0.166" />
+        <entry key="..\:/Users/Lenovo/Desktop/room-seller-android-app/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2045" />
+        <entry key="..\:/Users/Lenovo/Desktop/room-seller-android-app/app/src/main/res/drawable/shape_rectangle_stroke.xml" value="0.166" />
+        <entry key="..\:/Users/Lenovo/Desktop/room-seller-android-app/app/src/main/res/layout/activity_booking_detail.xml" value="0.27239583333333334" />
+        <entry key="..\:/Users/Lenovo/Desktop/room-seller-android-app/app/src/main/res/layout/activity_main.xml" value="0.27239583333333334" />
+        <entry key="..\:/Users/Lenovo/Desktop/room-seller-android-app/app/src/main/res/layout/fragment_room_type.xml" value="0.27239583333333334" />
+        <entry key="..\:/Users/Lenovo/Desktop/room-seller-android-app/app/src/main/res/layout/item_booking_info.xml" value="0.27239583333333334" />
       </map>
     </option>
   </component>

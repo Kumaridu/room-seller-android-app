@@ -1,15 +1,14 @@
 package com.innoveller.roomseller
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
+import android.util.Log
 import android.widget.Button
-import android.widget.Toast
-import androidx.recyclerview.widget.RecyclerView
+import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.messaging.FirebaseMessaging
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -20,5 +19,15 @@ class MainActivity : AppCompatActivity() {
             intent = Intent(applicationContext, BookingList::class.java)
             startActivity(intent);
         }
+
+        //Subscribing the topic from firebase
+        FirebaseMessaging.getInstance().subscribeToTopic("/topics/Hotel20")
+            .addOnCompleteListener { task ->
+                var msg = "You have subscribe me :) "
+                if (!task.isSuccessful) {
+                    msg = "Subscription Failed"
+                }
+                Log.d(BookingList.TAG, msg!!)
+            }
     }
 }

@@ -28,7 +28,20 @@
             android:name=".BookingDetail"
             android:parentActivityName=".BookingList"
             android:label="Details"
-            android:exported="false" />
+            android:exported="false" >
+            <intent-filter>
+                <action android:name=".BookingDetail" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".firebase.MyFireBaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"></action>
+            </intent-filter>
+        </service>
 
     </application>
 

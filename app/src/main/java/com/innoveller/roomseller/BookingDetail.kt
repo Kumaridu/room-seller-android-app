@@ -19,10 +19,10 @@ import retrofit2.Response
 class BookingDetail : AppCompatActivity() {
 
     companion object {
-        const val INTENT_KEY_BOOKING_ID = "INTENT_KEY_BOOKING_ID"
+        const val BOOKING_ID = "booking_id"
+        const val TAG = "BookingDetail"
     }
 
-    private val TAG = "BookingDetail"
     private lateinit var restApi: RestApi
 
     private lateinit var loading: ProgressBar;
@@ -62,7 +62,6 @@ class BookingDetail : AppCompatActivity() {
     lateinit var commission: TextView
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_booking_detail)
@@ -100,14 +99,13 @@ class BookingDetail : AppCompatActivity() {
         loading = findViewById(R.id.pb_loading)
         layout = findViewById(R.id.bookingDetail)
 
-        val bookingId: String? = intent?.getStringExtra(INTENT_KEY_BOOKING_ID)
-        println("This is booking id: $bookingId")
+        //Get booking id from booking list click event listener or from firebase
+        val bookingId = intent?.getStringExtra(BOOKING_ID)
 
         if(bookingId != null) {
             Log.d(TAG, "onCreate: Going to request booking info via Id: $bookingId")
             getBookingById(bookingId)
         }
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -144,7 +142,7 @@ class BookingDetail : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<Booking>, t: Throwable) {
-                println("got error")
+                Log.d(TAG, "onFailure: ${t.printStackTrace()}")
                 t.printStackTrace()
             }
         })

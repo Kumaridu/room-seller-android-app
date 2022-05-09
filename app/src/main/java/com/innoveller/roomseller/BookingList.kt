@@ -1,13 +1,16 @@
 package com.innoveller.roomseller
 
-import android.content.Intent
+import android.content.*
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.innoveller.roomseller.firebase.MyFireBaseMessagingService.Companion.INTENT_ACTION_SEND_MESSAGE
 import com.innoveller.roomseller.adapter.BookingInfoViewAdapter
 import com.innoveller.roomseller.rest.api.RestApi
 import com.innoveller.roomseller.rest.api.RestApiBuilder
@@ -16,13 +19,15 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+
 class BookingList : AppCompatActivity() {
 
     // static variable at kotlin
     companion object {
-        private const val TAG = "BookingList"
+        const val TAG = "BookingList"
     }
 
+     lateinit var receiver : BroadcastReceiver
      private lateinit var restApi: RestApi
      private lateinit var adapter: BookingInfoViewAdapter
      private lateinit var recyclerView: RecyclerView
@@ -40,11 +45,10 @@ class BookingList : AppCompatActivity() {
         setContentView(R.layout.activity_booking_list)
 
         loadingBar = findViewById(R.id.pb_loading)
-        restApi = RestApiBuilder.buildRestApi()
         recyclerView = findViewById(R.id.recyclerview)
         layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
-
+        restApi = RestApiBuilder.buildRestApi()
 
         getBookingList()
 
@@ -68,6 +72,40 @@ class BookingList : AppCompatActivity() {
                 }
             }
         })
+
+
+////         will show the message from firebase with dialog when the app is in foreground
+        receiver = object: BroadcastReceiver() {
+            override fun onReceive(context: Context?, intent: Intent?) {
+                val message = intent?.getStringExtra("message")
+
+//                Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+
+                if (context != null) {
+                    AlertDialog.Builder(this@BookingList)
+                        .setMessage(message)
+                        .setTitle("New Booking")
+                        .setPositiveButton("Ok"){ _: DialogInterface, _: Int -> }
+                        .create().show()
+                }
+            }
+        }
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(TAG, "onResume: I call called")
+        Log.d(TAG, "onResume: After clicking notification. I go there not on create method")
+
+        var filter = IntentFilter(INTENT_ACTION_SEND_MESSAGE)
+        LocalBroadcastManager.getInstance(this).registerReceiver(receiver, filter)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "onPause: I call called")
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(receiver)
     }
 
     private fun getBookingList() {
@@ -80,15 +118,12 @@ class BookingList : AppCompatActivity() {
                     val bookingListResBody = response.body()
                     if(bookingListResBody != null) {
                         Log.d(TAG, "onResponse: Get Booking List")
-                        adapter =
-                            BookingInfoViewAdapter(
-                                bookingListResBody
-                            )
+                        adapter = BookingInfoViewAdapter(bookingListResBody)
                         recyclerView.adapter = adapter
 
                         adapter.setOnClickListener { view, booking ->
                             val intentToStartDetailActivity = Intent(view?.context, BookingDetail::class.java)
-                            intentToStartDetailActivity.putExtra(BookingDetail.INTENT_KEY_BOOKING_ID, booking.id.toString())
+                            intentToStartDetailActivity.putExtra(BookingDetail.BOOKING_ID, booking.id.toString())
                             startActivity(intentToStartDetailActivity)
                         }
                     }

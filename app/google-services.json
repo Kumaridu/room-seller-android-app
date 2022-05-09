@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1041660275329",
+    "project_id": "room-seller",
+    "storage_bucket": "room-seller.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041660275329:android:28780debadb12c0e52bb80",
+        "android_client_info": {
+          "package_name": "com.innoveller.roomseller"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1041660275329-nvctf9pj5t7ck2leo1qo0tvdf8fblen5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoV4fdaS6IRrUdASKcmSbLmDDMF08GID8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1041660275329-nvctf9pj5t7ck2leo1qo0tvdf8fblen5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

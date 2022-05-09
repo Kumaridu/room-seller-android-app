@@ -1,7 +1,5 @@
 package com.innoveller.roomseller.rest.dtos;
 
-import java.io.Serializable;
-
 public class HotelInfo {
 
     public int id;
