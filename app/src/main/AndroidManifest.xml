@@ -14,13 +14,8 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
+            android:exported="false"
             android:theme="@style/Theme.RoomSeller.NoActionBar" >
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".BookingList"
@@ -28,13 +23,12 @@
             android:launchMode="singleTask" />
 
         <activity
-            android:name=".LoginActivity"
-            android:exported="false">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+            android:name=".LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".BookingDetail"

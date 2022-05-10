@@ -10,4 +10,7 @@
     <color name="gold">#eef0f2</color>
     <color name="focusGreen">#55b96c</color>
     <color name="tableStripe">#f2f2f3</color>
+
+    <color name="primary">#FF6200EE</color>
+
 </resources>
