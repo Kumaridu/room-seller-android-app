@@ -1,68 +1,45 @@
 package com.innoveller.roomseller.ui.booking
 
-import android.content.Intent
 import android.util.Log
 import android.view.View
+import android.widget.ProgressBar
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.innoveller.roomseller.BookingDetail
-import com.innoveller.roomseller.BookingList
-import com.innoveller.roomseller.adapter.BookingInfoViewAdapter
+import com.innoveller.roomseller.rest.api.RestApi
+import com.innoveller.roomseller.rest.api.RestApiBuilder
 import com.innoveller.roomseller.rest.dtos.Booking
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class BookingViewModel : ViewModel() {
-
-    private val bookings: MutableLiveData<List<Booking>> by lazy {
-        MutableLiveData<List<Booking>>().also {
-            loadUsers()
-        }
-    }
+    private val TAG = "BookingViewModel"
+    private val resultMutableLiveData = MutableLiveData<List<Booking>>()
+    private val restApi: RestApi = RestApiBuilder.buildRestApi()
 
     fun getBookings(): LiveData<List<Booking>> {
-        return bookings
+        return resultMutableLiveData
     }
 
+    fun loadBookingList(loadingBar: ProgressBar) {
+        val bookingListCall = restApi.bookingList
+        bookingListCall.enqueue(object : Callback<List<Booking>> {
+            override fun onResponse(call: Call<List<Booking>>, response: Response<List<Booking>>) {
+                if (response.isSuccessful) {
+                    loadingBar.visibility = View.GONE
+                    val bookingListBody = response.body()
+                    if (bookingListBody != null) {
+                        Log.d(TAG, "onResponse: Get Booking List")
+                        resultMutableLiveData.postValue(bookingListBody!!)
+                    }
+                }
+            }
 
-//    private fun getBookingList() {
-//        val bookingListCall = restApi.bookingList
-//
-//        bookingListCall.enqueue(object: Callback<List<Booking>> {
-//            override fun onResponse(call: Call<List<Booking>>, response: Response<List<Booking>>) {
-//                loadingBar.visibility = View.GONE
-//                if(response.isSuccessful) {
-//                    val bookingListResBody = response.body()
-//                    if(bookingListResBody != null) {
-//                        Log.d(BookingList.TAG, "onResponse: Get Booking List")
-//                        adapter = BookingInfoViewAdapter(bookingListResBody)
-//                        recyclerView.adapter = adapter
-//
-//                        adapter.setOnClickListener { view, booking ->
-//                            val intentToStartDetailActivity = Intent(view?.context, BookingDetail::class.java)
-//                            intentToStartDetailActivity.putExtra(BookingDetail.BOOKING_ID, booking.id.toString())
-//                            startActivity(intentToStartDetailActivity)
-//                        }
-//                    }
-//                }
-//            }
-//
-//            override fun onFailure(call: Call<List<Booking>>, t: Throwable) {
-//                Log.d(BookingList.TAG, "onFailure: $t")
-//                t.printStackTrace()
-//            }
-//        })
-//    }
-
-    private fun loadUsers() {
-        // Do an asynchronous operation to fetch users.
+            override fun onFailure(call: Call<List<Booking>?>, t: Throwable) {
+                Log.d(TAG,"onFailure $t")
+                t.printStackTrace()
+            }
+        })
     }
-
-
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is gallery Fragment"
-    }
-    val text: LiveData<String> = _text
 }

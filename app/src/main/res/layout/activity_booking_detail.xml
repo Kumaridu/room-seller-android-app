@@ -19,8 +19,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/bookingDetail"
-    android:visibility="gone">
+    android:id="@+id/bookingDetail">
 
 
     <TextView
@@ -196,28 +195,29 @@
                     style="?attr/textAppearanceSubtitle2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
                     android:text="Kesaria"
-                    app:layout_constraintStart_toStartOf="@+id/tv_name_label"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_name_label" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_name_label" />
 
                 <TextView
                     android:id="@+id/tv_nationality_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:text="Nationality"
                     android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_nationality"
-                    app:layout_constraintTop_toTopOf="@+id/tv_name_label" />
+                    app:layout_constraintStart_toStartOf="@+id/tv_name_label"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_name_label" />
 
                 <TextView
                     android:id="@+id/tv_nationality"
                     style="?attr/textAppearanceSubtitle2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
                     android:text="Local"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_nationality_label" />
+                    app:layout_constraintEnd_toEndOf="@+id/tv_guest_name"
+                    app:layout_constraintTop_toTopOf="@+id/tv_nationality_label" />
 
                 <TextView
                     android:id="@+id/tv_phone_number_label"
@@ -226,8 +226,8 @@
                     android:layout_marginTop="8dp"
                     android:text="Phone Number"
                     android:textSize="14sp"
-                    app:layout_constraintStart_toStartOf="@+id/tv_guest_name"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_guest_name" />
+                    app:layout_constraintStart_toStartOf="@+id/tv_nationality_label"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_nationality_label" />
 
                 <TextView
                     android:id="@+id/tv_phone_number"
@@ -245,7 +245,7 @@
                     android:layout_marginTop="8dp"
                     android:text="Email"
                     android:textSize="14sp"
-                    app:layout_constraintStart_toStartOf="@+id/tv_guest_name"
+                    app:layout_constraintStart_toStartOf="@+id/tv_phone_number_label"
                     app:layout_constraintTop_toBottomOf="@+id/tv_phone_number_label" />
 
                 <TextView
@@ -516,7 +516,6 @@
                     android:text="15750.0 "
                     app:layout_constraintEnd_toEndOf="@+id/tv_transaction_id"
                     app:layout_constraintTop_toTopOf="@+id/tv_commission_label" />
-
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
