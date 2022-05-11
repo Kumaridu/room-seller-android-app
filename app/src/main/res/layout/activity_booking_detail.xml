@@ -174,7 +174,7 @@
                     android:layout_marginTop="16dp"
                     android:text="Guest Information"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="?attr/colorAccent"
+                    android:textColor="@color/primary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />

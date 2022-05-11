@@ -30,6 +30,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".BookingDetail2"
+            android:exported="false"/>
         <activity
             android:name=".BookingDetail"
             android:exported="false"

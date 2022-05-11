@@ -8,9 +8,9 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        app:strokeColor="@color/stroke_color"
+        app:strokeWidth="1dp"
+        android:padding="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -24,10 +24,9 @@
                 android:id="@+id/tv_room_type_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:text="Standard Sgl/Dbl"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="?attr/colorAccent"
+                android:textColor="@color/primary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -36,7 +35,6 @@
                 android:id="@+id/tv_max_occupancy_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:text="Max Occupancy"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_room_type_label" />
@@ -93,6 +91,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/tv_rate_plan"
                 app:layout_constraintTop_toTopOf="@+id/tv_one_extra_bed_rate_label" />
 
+
             <TextView
                 android:id="@+id/tv_sub_total"
                 android:layout_width="wrap_content"
@@ -111,6 +110,8 @@
                 app:srcCompat="@drawable/ic_down_arrow" />
 
             <TableLayout
+                android:id="@+id/tableRate"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="24dp"
