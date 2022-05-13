@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-    <com.google.android.material.card.MaterialCardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:strokeColor="@color/stroke_color"
-        app:strokeWidth="1dp">
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tv_currency"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:strokeColor="@color/stroke_color"
+    app:strokeWidth="1dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,88 +17,88 @@
 
         <!--  Guest Information  -->
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/tv_guest_info_section"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Guest Information"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/primary"
+            android:textColor="?attr/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/tv_name_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="Name"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_guest_info_section" />
 
         <TextView
-            android:id="@+id/textView14"
+            android:id="@+id/tv_nationality_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Nationality"
-            app:layout_constraintStart_toStartOf="@+id/textView5"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+            app:layout_constraintStart_toStartOf="@+id/tv_name_label"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name_label" />
 
         <TextView
-            android:id="@+id/textView15"
+            android:id="@+id/tv_phone_number_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Phone Number"
-            app:layout_constraintStart_toStartOf="@+id/textView5"
-            app:layout_constraintTop_toBottomOf="@+id/textView14" />
+            app:layout_constraintStart_toStartOf="@+id/tv_name_label"
+            app:layout_constraintTop_toBottomOf="@+id/tv_nationality_label" />
 
         <TextView
-            android:id="@+id/textView16"
+            android:id="@+id/tv_email_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Email"
-            app:layout_constraintStart_toStartOf="@+id/textView5"
-            app:layout_constraintTop_toBottomOf="@+id/textView15" />
+            app:layout_constraintStart_toStartOf="@+id/tv_name_label"
+            app:layout_constraintTop_toBottomOf="@+id/tv_phone_number_label" />
 
 
         <TextView
-            android:id="@+id/textView18"
+            android:id="@+id/tv_guest_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:text="Kesaria"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView5" />
+            app:layout_constraintTop_toTopOf="@+id/tv_name_label" />
 
         <TextView
-            android:id="@+id/textView19"
+            android:id="@+id/tv_nationality"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tonga"
-            app:layout_constraintEnd_toEndOf="@+id/textView18"
-            app:layout_constraintTop_toTopOf="@+id/textView14" />
+            app:layout_constraintEnd_toEndOf="@+id/tv_guest_name"
+            app:layout_constraintTop_toTopOf="@+id/tv_nationality_label" />
 
         <TextView
-            android:id="@+id/textView20"
+            android:id="@+id/tv_phone_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="9591242433"
-            app:layout_constraintEnd_toEndOf="@+id/textView18"
-            app:layout_constraintTop_toTopOf="@+id/textView15" />
+            app:layout_constraintEnd_toEndOf="@+id/tv_guest_name"
+            app:layout_constraintTop_toTopOf="@+id/tv_phone_number_label" />
 
         <TextView
-            android:id="@+id/textView21"
+            android:id="@+id/tv_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="kesaria@gmail.com"
-            app:layout_constraintEnd_toEndOf="@+id/textView18"
-            app:layout_constraintTop_toTopOf="@+id/textView16" />
+            app:layout_constraintEnd_toEndOf="@+id/tv_guest_name"
+            app:layout_constraintTop_toTopOf="@+id/tv_email_label" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -109,7 +109,7 @@
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView16">
+            app:layout_constraintTop_toBottomOf="@+id/tv_email_label">
 
             <TextView
                 android:id="@+id/tv_special_request_label"
@@ -119,7 +119,7 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/tv_commission_info_label"
+                android:id="@+id/tv_special_request"
                 style="?attr/textAppearanceSubtitle2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -141,65 +141,65 @@
 
         <!--        Payment Information -->
         <TextView
-            android:id="@+id/textView23"
+            android:id="@+id/tv_booking_summary_section"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Booking Summary"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/primary"
+            android:textColor="?attr/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider" />
 
         <TextView
-            android:id="@+id/textView24"
+            android:id="@+id/tv_payment_type_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="Payment Type"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView23" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_booking_summary_section" />
 
         <TextView
-            android:id="@+id/textView25"
+            android:id="@+id/tv_total_booking_amount_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Total Amount"
-            app:layout_constraintStart_toStartOf="@+id/textView24"
-            app:layout_constraintTop_toBottomOf="@+id/textView24" />
+            app:layout_constraintStart_toStartOf="@+id/tv_payment_type_label"
+            app:layout_constraintTop_toBottomOf="@+id/tv_payment_type_label" />
 
         <TextView
-            android:id="@+id/textView26"
+            android:id="@+id/tv_discount_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Discount"
-            app:layout_constraintStart_toStartOf="@+id/textView25"
-            app:layout_constraintTop_toBottomOf="@+id/textView25" />
+            app:layout_constraintStart_toStartOf="@+id/tv_total_booking_amount_label"
+            app:layout_constraintTop_toBottomOf="@+id/tv_total_booking_amount_label" />
 
         <TextView
-            android:id="@+id/textView27"
+            android:id="@+id/tv_commission_able_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Commission-able amount"
-            app:layout_constraintStart_toStartOf="@+id/textView26"
-            app:layout_constraintTop_toBottomOf="@+id/textView26" />
+            app:layout_constraintStart_toStartOf="@+id/tv_discount_label"
+            app:layout_constraintTop_toBottomOf="@+id/tv_discount_label" />
 
         <TextView
-            android:id="@+id/textView28"
+            android:id="@+id/tv_commission_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Commission"
-            app:layout_constraintStart_toStartOf="@+id/textView27"
-            app:layout_constraintTop_toBottomOf="@+id/textView27" />
+            app:layout_constraintStart_toStartOf="@+id/tv_commission_able_label"
+            app:layout_constraintTop_toBottomOf="@+id/tv_commission_able_label" />
 
         <TextView
-            android:id="@+id/textView29"
+            android:id="@+id/tv_payment_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -207,39 +207,40 @@
             android:text="FULLY PAID"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView23" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_booking_summary_section" />
 
         <TextView
-            android:id="@+id/textView30"
+            android:id="@+id/tv_total_booking_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
             android:text="1050000.0"
-            app:layout_constraintEnd_toEndOf="@+id/textView29"
-            app:layout_constraintTop_toTopOf="@+id/textView25" />
+            app:layout_constraintEnd_toEndOf="@+id/tv_payment_type"
+            app:layout_constraintTop_toTopOf="@+id/tv_total_booking_amount_label" />
 
         <TextView
-            android:id="@+id/textView31"
+            android:id="@+id/tv_discount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0.0"
-            app:layout_constraintEnd_toEndOf="@+id/textView30"
-            app:layout_constraintTop_toTopOf="@+id/textView26" />
+            app:layout_constraintEnd_toEndOf="@+id/tv_total_booking_amount"
+            app:layout_constraintTop_toTopOf="@+id/tv_discount_label" />
 
         <TextView
-            android:id="@+id/textView32"
+            android:id="@+id/tv_commission_able_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="105000.0"
-            app:layout_constraintEnd_toEndOf="@+id/textView29"
-            app:layout_constraintTop_toTopOf="@+id/textView27" />
+            app:layout_constraintEnd_toEndOf="@+id/tv_payment_type"
+            app:layout_constraintTop_toTopOf="@+id/tv_commission_able_label" />
 
         <TextView
-            android:id="@+id/textView33"
+            android:id="@+id/tv_commission"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="15750.0 "
-            app:layout_constraintEnd_toEndOf="@+id/textView29"
-            app:layout_constraintTop_toTopOf="@+id/textView28" />
+            app:layout_constraintEnd_toEndOf="@+id/tv_payment_type"
+            app:layout_constraintTop_toTopOf="@+id/tv_commission_label" />
 
         <View
             android:id="@+id/divider4"
@@ -249,44 +250,44 @@
             android:background="?android:attr/listDivider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView50" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_convenience_label" />
         <!--  End of Payment Information  -->
 
         <!--  Commission Information -->
 
         <TextView
-            android:id="@+id/textView40"
+            android:id="@+id/tv_payment_summary_section"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Payment Summary"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/primary"
+            android:textColor="?attr/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider4" />
 
         <TextView
-            android:id="@+id/textView41"
+            android:id="@+id/tv_payment_amount_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="Payment Amount"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView40" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_payment_summary_section" />
 
         <TextView
-            android:id="@+id/textView42"
+            android:id="@+id/tv_currency_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Currency"
-            app:layout_constraintStart_toStartOf="@+id/textView41"
-            app:layout_constraintTop_toBottomOf="@+id/textView41" />
+            app:layout_constraintStart_toStartOf="@+id/tv_payment_amount_label"
+            app:layout_constraintTop_toBottomOf="@+id/tv_payment_amount_label" />
 
         <TextView
-            android:id="@+id/textView43"
+            android:id="@+id/tv_payment_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -294,7 +295,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/focusGreen"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView41" />
+            app:layout_constraintTop_toTopOf="@+id/tv_payment_amount_label" />
 
         <TextView
             android:id="@+id/textView44"
@@ -302,76 +303,76 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="MMK"
-            app:layout_constraintEnd_toEndOf="@+id/textView43"
-            app:layout_constraintTop_toBottomOf="@+id/textView43" />
+            app:layout_constraintEnd_toEndOf="@+id/tv_payment_amount"
+            app:layout_constraintTop_toBottomOf="@+id/tv_payment_amount" />
 
         <TextView
-            android:id="@+id/textView47"
+            android:id="@+id/tv_taxes_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Taxes"
-            app:layout_constraintStart_toStartOf="@+id/textView28"
-            app:layout_constraintTop_toBottomOf="@+id/textView28" />
+            app:layout_constraintStart_toStartOf="@+id/tv_commission_label"
+            app:layout_constraintTop_toBottomOf="@+id/tv_commission_label" />
 
         <TextView
-            android:id="@+id/textView49"
+            android:id="@+id/tv_taxes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0.0 "
-            app:layout_constraintEnd_toEndOf="@+id/textView33"
-            app:layout_constraintTop_toTopOf="@+id/textView47" />
+            app:layout_constraintEnd_toEndOf="@+id/tv_commission"
+            app:layout_constraintTop_toTopOf="@+id/tv_taxes_label" />
 
         <TextView
-            android:id="@+id/textView50"
+            android:id="@+id/tv_convenience_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Convenience Fee"
-            app:layout_constraintStart_toStartOf="@+id/textView47"
-            app:layout_constraintTop_toBottomOf="@+id/textView47" />
+            app:layout_constraintStart_toStartOf="@+id/tv_taxes_label"
+            app:layout_constraintTop_toBottomOf="@+id/tv_taxes_label" />
 
         <TextView
-            android:id="@+id/textView51"
+            android:id="@+id/tv_convenience_fee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="200.0"
-            app:layout_constraintEnd_toEndOf="@+id/textView49"
-            app:layout_constraintTop_toTopOf="@+id/textView50" />
+            app:layout_constraintEnd_toEndOf="@+id/tv_taxes"
+            app:layout_constraintTop_toTopOf="@+id/tv_convenience_label" />
 
         <TextView
-            android:id="@+id/textView52"
+            android:id="@+id/tv_gateway_type_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Gateway Type"
-            app:layout_constraintStart_toStartOf="@+id/textView42"
-            app:layout_constraintTop_toBottomOf="@+id/textView42" />
+            app:layout_constraintStart_toStartOf="@+id/tv_currency_label"
+            app:layout_constraintTop_toBottomOf="@+id/tv_currency_label" />
 
         <TextView
-            android:id="@+id/textView53"
+            android:id="@+id/tv_gateway_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="KBZPay"
             app:layout_constraintEnd_toEndOf="@+id/textView44"
-            app:layout_constraintTop_toTopOf="@+id/textView52" />
+            app:layout_constraintTop_toTopOf="@+id/tv_gateway_type_label" />
 
         <TextView
-            android:id="@+id/textView54"
+            android:id="@+id/tv_transaction_id_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Transaction Id"
-            app:layout_constraintStart_toStartOf="@+id/textView52"
-            app:layout_constraintTop_toBottomOf="@+id/textView52" />
+            app:layout_constraintStart_toStartOf="@+id/tv_gateway_type_label"
+            app:layout_constraintTop_toBottomOf="@+id/tv_gateway_type_label" />
 
         <TextView
-            android:id="@+id/textView55"
+            android:id="@+id/tv_transaction_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1231123"
-            app:layout_constraintEnd_toEndOf="@+id/textView53"
-            app:layout_constraintTop_toTopOf="@+id/textView54" />
+            app:layout_constraintEnd_toEndOf="@+id/tv_gateway_type"
+            app:layout_constraintTop_toTopOf="@+id/tv_transaction_id_label" />
 
         <!-- end of Commission Information -->
 

@@ -22,37 +22,40 @@
             app:popupTheme="@style/Theme.RoomSeller.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <ProgressBar
+        android:id="@+id/pb_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"/>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="650dp"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-            <ProgressBar
-                android:id="@+id/pb_loading"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"/>
 
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:id="@+id/bookingDetail"
+            android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/bookingDetail"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp">
 
                 <TextView
                     android:id="@+id/tv_booking_ref_label"
-                    style="?attr/textAppearanceCaption"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="16dp"
-                    android:text="Booking Ref"
-                    android:textSize="14sp"
+                    android:text="Booking Reference"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -60,7 +63,7 @@
                     android:id="@+id/tv_booking_ref"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1022-2341"
+                    android:text="2311-3334"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     app:layout_constraintStart_toStartOf="@+id/tv_booking_ref_label"
                     app:layout_constraintTop_toBottomOf="@+id/tv_booking_ref_label" />
@@ -70,481 +73,167 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Booked On"
-                    android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_booked_on"
-                    app:layout_constraintTop_toTopOf="@+id/tv_booking_ref_label" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/tv_booked_on"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="32dp"
-                    android:text="2022-04-21"
+                    android:text="April 24 2022, 01:30pm"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_booked_on_label"
                     app:layout_constraintTop_toBottomOf="@+id/tv_booked_on_label" />
-
-                <TextView
-                    android:id="@+id/tv_check_in_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="Check In"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toStartOf="@+id/tv_booking_ref_label"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_booking_ref" />
-
-                <TextView
-                    android:id="@+id/tv_check_in"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="2022-04-25"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    app:layout_constraintStart_toStartOf="@+id/tv_booking_ref_label"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_check_in_label" />
-
-                <TextView
-                    android:id="@+id/tv_checkout_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Check Out"
-                    android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_booked_on_label"
-                    app:layout_constraintTop_toTopOf="@+id/tv_check_in_label" />
-
-                <TextView
-                    android:id="@+id/tv_checkout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="2022-04-27"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_booked_on_label"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_checkout_label" />
-
-                <View
-                    android:id="@+id/view2"
-                    android:layout_width="0dp"
-                    android:layout_height="2dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:background="@color/gold"
-                    app:layout_constraintBottom_toBottomOf="@+id/tv_checkout_label"
-                    app:layout_constraintEnd_toStartOf="@+id/tv_checkout"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toEndOf="@+id/tv_check_in"
-                    app:layout_constraintTop_toTopOf="@+id/tv_checkout_label"
-                    app:layout_constraintVertical_bias="1.0" />
-
-                <TextView
-                    android:id="@+id/tv_num_nighs_and_rooms"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:text="2 nights | 2 rooms"
-                    app:layout_constraintBottom_toTopOf="@+id/view2"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_num_guests"
-                    app:layout_constraintStart_toStartOf="@+id/tv_num_guests" />
-
-                <TextView
-                    android:id="@+id/tv_num_guests"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="3 guests"
-                    app:layout_constraintEnd_toStartOf="@+id/tv_checkout"
-                    app:layout_constraintStart_toEndOf="@+id/tv_check_in"
-                    app:layout_constraintTop_toBottomOf="@+id/view2" />
-
-
-                <include
-                    android:id="@+id/tv_room_type_title1"
-                    layout="@layout/fragment_room_type"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-
-                    android:layout_marginTop="32dp"
-                    android:layout_weight="1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_num_guests" />
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/materialCardView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="32dp"
-                    android:paddingBottom="32dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_room_type_title1">
-
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:paddingBottom="32dp">
-
-                        <TextView
-                            android:id="@+id/tv_guest_informaiton_label"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:text="Guest Information"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                            android:textColor="@color/primary"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <TextView
-                            android:id="@+id/tv_name_label"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginTop="16dp"
-                            android:text="Name"
-                            android:textSize="14sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_guest_informaiton_label" />
-
-                        <TextView
-                            android:id="@+id/tv_guest_name"
-                            style="?attr/textAppearanceSubtitle2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="16dp"
-                            android:text="Kesaria"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="@+id/tv_name_label" />
-
-                        <TextView
-                            android:id="@+id/tv_nationality_label"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Nationality"
-                            android:textSize="14sp"
-                            app:layout_constraintStart_toStartOf="@+id/tv_name_label"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_name_label" />
-
-                        <TextView
-                            android:id="@+id/tv_nationality"
-                            style="?attr/textAppearanceSubtitle2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Local"
-                            app:layout_constraintEnd_toEndOf="@+id/tv_guest_name"
-                            app:layout_constraintTop_toTopOf="@+id/tv_nationality_label" />
-
-                        <TextView
-                            android:id="@+id/tv_phone_number_label"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Phone Number"
-                            android:textSize="14sp"
-                            app:layout_constraintStart_toStartOf="@+id/tv_nationality_label"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_nationality_label" />
-
-                        <TextView
-                            android:id="@+id/tv_phone_number"
-                            style="?attr/textAppearanceSubtitle2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="09788983213"
-                            app:layout_constraintEnd_toEndOf="@+id/tv_nationality"
-                            app:layout_constraintTop_toTopOf="@+id/tv_phone_number_label" />
-
-                        <TextView
-                            android:id="@+id/tv_email_label"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Email"
-                            android:textSize="14sp"
-                            app:layout_constraintStart_toStartOf="@+id/tv_phone_number_label"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_phone_number_label" />
-
-                        <TextView
-                            android:id="@+id/tv_email"
-                            style="?attr/textAppearanceSubtitle2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="kesaria@gmail.com"
-                            app:layout_constraintEnd_toEndOf="@+id/tv_nationality"
-                            app:layout_constraintTop_toTopOf="@+id/tv_email_label" />
-
-                        <LinearLayout
-                            android:id="@+id/linearLayout"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginEnd="16dp"
-                            app:layout_constraintEnd_toEndOf="@+id/tv_email"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_email_label">
-
-                            <TextView
-                                android:id="@+id/tv_special_request_label"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Special Request"
-                                android:textSize="14sp" />
-
-                            <TextView
-                                android:id="@+id/tv_commission_info_label"
-                                style="?attr/textAppearanceSubtitle2"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="end"
-                                android:text="-" />
-                        </LinearLayout>
-
-                        <View
-                            android:id="@+id/view4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="2dp"
-                            android:layout_marginTop="16dp"
-                            android:background="@color/gold"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-                        <TextView
-                            android:id="@+id/tv_payment_info_label"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:text="Payment Information"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                            android:textColor="?attr/colorAccent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/view4" />
-
-                        <TextView
-                            android:id="@+id/tv_payment_type_label"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginTop="16dp"
-                            android:text="Payment Type"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_payment_info_label" />
-
-                        <TextView
-                            android:id="@+id/tv_payment_type"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="16dp"
-                            android:text="FULLY PAID"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="@+id/tv_payment_type_label" />
-
-                        <TextView
-                            android:id="@+id/tv_net_amount_label"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Net Amount"
-                            app:layout_constraintStart_toStartOf="@+id/tv_payment_type_label"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_payment_type_label" />
-
-                        <TextView
-                            android:id="@+id/tv_discount_label"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Discount"
-                            app:layout_constraintStart_toStartOf="@+id/tv_payment_type_label"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_net_amount_label" />
-
-                        <TextView
-                            android:id="@+id/tv_taxes_label"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Taxes"
-                            app:layout_constraintStart_toStartOf="@+id/tv_discount_label"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_discount_label" />
-
-                        <TextView
-                            android:id="@+id/tv_convenience_label"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Convenience Fee"
-                            app:layout_constraintStart_toStartOf="@+id/tv_taxes_label"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_taxes_label" />
-
-                        <TextView
-                            android:id="@+id/tv_net_amount"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="105000.0"
-                            app:layout_constraintEnd_toEndOf="@+id/tv_payment_type"
-                            app:layout_constraintTop_toTopOf="@id/tv_net_amount_label"
-                            tools:layout_editor_absoluteY="306dp" />
-
-                        <TextView
-                            android:id="@+id/tv_discount"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0.0"
-                            app:layout_constraintEnd_toEndOf="@+id/tv_net_amount"
-                            app:layout_constraintTop_toTopOf="@id/tv_discount_label"
-                            tools:layout_editor_absoluteY="271dp" />
-
-                        <TextView
-                            android:id="@+id/tv_taxes"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0.0"
-                            app:layout_constraintEnd_toEndOf="@+id/tv_discount"
-                            app:layout_constraintTop_toTopOf="@id/tv_taxes_label" />
-
-                        <TextView
-                            android:id="@+id/tv_convenience_fee"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="200"
-                            app:layout_constraintEnd_toEndOf="@+id/tv_taxes"
-                            app:layout_constraintTop_toTopOf="@+id/tv_convenience_label" />
-
-                        <View
-                            android:id="@+id/view5"
-                            android:layout_width="0dp"
-                            android:layout_height="2dp"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginEnd="16dp"
-                            android:background="@color/gold"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_convenience_label" />
-
-                        <TextView
-                            android:id="@+id/tv_payment_amount_label"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Payment Amount"
-                            app:layout_constraintStart_toStartOf="@+id/tv_convenience_label"
-                            app:layout_constraintTop_toBottomOf="@+id/view5" />
-
-                        <TextView
-                            android:id="@+id/tv_payment_amount"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="MMK 105200.0"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                            android:textColor="@color/focusGreen"
-                            app:layout_constraintEnd_toEndOf="@+id/tv_convenience_fee"
-                            app:layout_constraintTop_toTopOf="@+id/tv_payment_amount_label" />
-
-                        <TextView
-                            android:id="@+id/tv_gateway_type_label"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Gateway Type"
-                            app:layout_constraintStart_toStartOf="@+id/tv_payment_amount_label"
-                            app:layout_constraintTop_toTopOf="@+id/tv_gateway_type" />
-
-                        <TextView
-                            android:id="@+id/tv_gateway_type"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Imm Pay"
-                            app:layout_constraintEnd_toEndOf="@+id/tv_payment_amount"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_payment_amount" />
-
-                        <TextView
-                            android:id="@+id/tv_transaction_id_label"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Transaction Id"
-                            app:layout_constraintStart_toStartOf="@+id/tv_payment_amount_label"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_gateway_type_label" />
-
-                        <TextView
-                            android:id="@+id/tv_transaction_id"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="12365322"
-                            app:layout_constraintEnd_toEndOf="@+id/tv_payment_amount"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_gateway_type" />
-
-                        <View
-                            android:id="@+id/view7"
-                            android:layout_width="wrap_content"
-                            android:layout_height="2dp"
-                            android:layout_marginTop="16dp"
-                            android:background="@color/gold"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_transaction_id_label" />
-
-                        <TextView
-                            android:id="@+id/textView48"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:text="Commission Information"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                            android:textColor="?attr/colorAccent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/view7" />
-
-                        <TextView
-                            android:id="@+id/tv_commission_able_label"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:text="Commission-able Amount"
-                            app:layout_constraintStart_toStartOf="@+id/tv_transaction_id_label"
-                            app:layout_constraintTop_toBottomOf="@+id/textView48" />
-
-                        <TextView
-                            android:id="@+id/tv_commission_label"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Commission"
-                            app:layout_constraintStart_toStartOf="@+id/tv_commission_able_label"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_commission_able_label" />
-
-                        <TextView
-                            android:id="@+id/tv_commission_able_amount"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="105000.0 "
-                            app:layout_constraintEnd_toEndOf="@+id/tv_transaction_id"
-                            app:layout_constraintTop_toTopOf="@+id/tv_commission_able_label" />
-
-                        <TextView
-                            android:id="@+id/tv_commission"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="15750.0 "
-                            app:layout_constraintEnd_toEndOf="@+id/tv_transaction_id"
-                            app:layout_constraintTop_toTopOf="@+id/tv_commission_label" />
-
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </com.google.android.material.card.MaterialCardView>
-
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </ScrollView>
-    </LinearLayout>
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                style="?attr/materialCardViewElevatedStyle">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="16dp">
+
+                    <TextView
+                        android:id="@+id/tv_check_in_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:text="Check In"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_check_in"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2022-04-25"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        app:layout_constraintStart_toStartOf="@+id/tv_check_in_label"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_check_in_label" />
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:text="Check Out"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/tv_check_in_label" />
+
+                    <TextView
+                        android:id="@+id/tv_checkout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2022-04-27"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        app:layout_constraintEnd_toEndOf="@+id/textView8"
+                        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+                    <View
+                        android:id="@+id/view"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@color/textMuted"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_check_in"
+                        app:layout_constraintEnd_toStartOf="@+id/tv_checkout"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/tv_check_in"
+                        app:layout_constraintTop_toTopOf="@+id/tv_check_in_label" />
+
+                    <TextView
+                        android:id="@+id/tv_num_nights"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2 nights"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/tv_check_in_label"
+                        app:layout_constraintEnd_toStartOf="@+id/textView8"
+                        app:layout_constraintStart_toEndOf="@+id/tv_check_in_label" />
+
+                    <View
+                        android:id="@+id/view3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="16dp"
+                        android:textColor="@color/white"
+                        android:background="@color/stroke_color"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_check_in" />
+
+                    <TextView
+                        android:id="@+id/tv_num_guests"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:text="3 guests"
+                        app:layout_constraintStart_toEndOf="@+id/imageView3"
+                        app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+                    <TextView
+                        android:id="@+id/tv_num_rooms"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="2 rooms"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_checkout"
+                        app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintEnd_toStartOf="@+id/tv_num_rooms"
+                        app:layout_constraintTop_toTopOf="@+id/tv_num_rooms"
+                        app:srcCompat="@drawable/room" />
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/tv_num_guests"
+                        app:srcCompat="@drawable/person" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <include
+                android:id="@+id/fragment_room_type"
+                layout="@layout/fragment_room_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"/>
+
+            <include
+                layout="@layout/guest_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_room_type" />
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
 </LinearLayout>

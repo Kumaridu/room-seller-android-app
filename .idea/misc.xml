@@ -41,7 +41,9 @@
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/drawable-v24/ic_list.xml" value="0.229" />
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/drawable-v24/ic_logout.xml" value="0.229" />
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/drawable-v24/list_alt-48px.xml" value="0.229" />
+        <entry key="..\:/hello/room-seller-android-app/app/src/main/res/drawable-v24/night.xml" value="0.3145" />
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/drawable-v24/person.xml" value="0.2805" />
+        <entry key="..\:/hello/room-seller-android-app/app/src/main/res/drawable-v24/person_white_color.xml" value="0.274" />
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/drawable-v24/profile_circle.xml" value="0.1025" />
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/drawable-v24/room.xml" value="0.2805" />
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/drawable-v24/single_bed.xml" value="0.2125" />
@@ -64,7 +66,7 @@
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/layout/fragment_room_type_mock.xml" value="0.5" />
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/layout/fragment_room_type_mock2.xml" value="0.5" />
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/layout/fragment_room_type_mock3.xml" value="0.5" />
-        <entry key="..\:/hello/room-seller-android-app/app/src/main/res/layout/fragment_room_type_mock4.xml" value="0.5" />
+        <entry key="..\:/hello/room-seller-android-app/app/src/main/res/layout/fragment_room_type_mock4.xml" value="0.3333333333333333" />
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/layout/fragment_slideshow.xml" value="0.27239583333333334" />
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/layout/frament_room_type_mock3.xml" value="0.25" />
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/layout/guest_card.xml" value="0.36666666666666664" />
