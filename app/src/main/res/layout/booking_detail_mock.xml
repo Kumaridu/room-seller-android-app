@@ -32,8 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2311-3334"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/primary"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintStart_toStartOf="@+id/textView17"
             app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
@@ -50,8 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2022-04-24"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/primary"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintEnd_toEndOf="@+id/textView45"
             app:layout_constraintTop_toBottomOf="@+id/textView45" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -61,10 +59,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="16dp"
-    app:strokeWidth="1dp"
-    app:strokeColor="@color/stroke_color"
-    app:cardElevation="0dp"
-    style="?attr/">
+    style="?attr/materialCardViewElevatedStyle">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -114,7 +109,7 @@
             android:layout_height="1dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:background="@color/primary"
+            android:background="@color/textMuted"
             app:layout_constraintBottom_toBottomOf="@+id/textView7"
             app:layout_constraintEnd_toStartOf="@+id/textView10"
             app:layout_constraintHorizontal_bias="0.0"
@@ -182,15 +177,11 @@
 
     <include
         android:id="@+id/fragment_room_type"
-        layout="@layout/fragment_room_type"
+        layout="@layout/fragment_room_type_mock4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_num_guests" />
+        android:layout_marginTop="16dp" />
 
     <include
         layout="@layout/guest_card"

@@ -12,27 +12,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RoomSeller">
         <activity
+            android:name=".ListUpdate"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
-            android:label="@string/title_activity_main"
             android:exported="false"
-            android:theme="@style/Theme.RoomSeller.NoActionBar" >
-        </activity>
+            android:label="@string/title_activity_main"
+            android:theme="@style/Theme.RoomSeller.NoActionBar"></activity>
         <activity
             android:name=".BookingList"
             android:exported="false"
             android:launchMode="singleTask" />
-
-        <activity
-            android:name=".LoginActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".BookingDetail2"
-            android:exported="false"/>
+        <activity
+            android:name=".BookingDetail2"
+            android:exported="false" />
         <activity
             android:name=".BookingDetail"
             android:exported="false"

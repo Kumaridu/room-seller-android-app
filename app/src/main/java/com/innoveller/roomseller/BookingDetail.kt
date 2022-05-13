@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import com.innoveller.roomseller.rest.api.RestApi
 import com.innoveller.roomseller.rest.api.RestApiBuilder
@@ -36,7 +37,6 @@ class BookingDetail : AppCompatActivity() {
     lateinit var checkOut: TextView
     lateinit var numNightAndRoom: TextView
 
-
     //Room TypeInfo
     lateinit var maxOccupancy: TextView
     lateinit var ratePlan: TextView
@@ -61,12 +61,14 @@ class BookingDetail : AppCompatActivity() {
     lateinit var transactionId: TextView
     lateinit var commission: TextView
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_booking_detail)
 
         restApi = RestApiBuilder.buildRestApi()
+
+        var toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
 
         bookingRef = findViewById(R.id.tv_booking_ref)
         numGuests = findViewById(R.id.tv_num_guests)

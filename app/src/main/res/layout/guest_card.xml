@@ -72,6 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:text="Kesaria"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textView5" />
 
@@ -144,7 +145,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Payment Information"
+            android:text="Booking Summary"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/primary"
             app:layout_constraintEnd_toEndOf="parent"
@@ -166,7 +167,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Net Amount"
+            android:text="Total Amount"
             app:layout_constraintStart_toStartOf="@+id/textView24"
             app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
@@ -184,7 +185,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Taxes"
+            android:text="Commission-able amount"
             app:layout_constraintStart_toStartOf="@+id/textView26"
             app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
@@ -193,7 +194,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Convenience Fee"
+            android:text="Commission"
             app:layout_constraintStart_toStartOf="@+id/textView27"
             app:layout_constraintTop_toBottomOf="@+id/textView27" />
 
@@ -204,6 +205,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:text="FULLY PAID"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
@@ -227,7 +229,7 @@
             android:id="@+id/textView32"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0.0"
+            android:text="105000.0"
             app:layout_constraintEnd_toEndOf="@+id/textView29"
             app:layout_constraintTop_toTopOf="@+id/textView27" />
 
@@ -235,75 +237,9 @@
             android:id="@+id/textView33"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="200"
+            android:text="15750.0 "
             app:layout_constraintEnd_toEndOf="@+id/textView29"
             app:layout_constraintTop_toTopOf="@+id/textView28" />
-
-        <TextView
-            android:id="@+id/textView34"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:text="Payment Amount"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView28" />
-
-        <TextView
-            android:id="@+id/textView35"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="MMK 1050200.0"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/focusGreen"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView34"
-            app:layout_constraintEnd_toEndOf="@+id/textView33" />
-
-        <View
-            android:id="@+id/divider3"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:background="?android:attr/listDivider"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView34" />
-
-        <TextView
-            android:id="@+id/textView36"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Gateway Type"
-            app:layout_constraintStart_toStartOf="@+id/textView34"
-            app:layout_constraintTop_toBottomOf="@+id/divider3" />
-
-        <TextView
-            android:id="@+id/textView37"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Transaction Id"
-            app:layout_constraintStart_toStartOf="@+id/textView36"
-            app:layout_constraintTop_toBottomOf="@+id/textView36" />
-
-        <TextView
-            android:id="@+id/textView38"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="KBZPay"
-            app:layout_constraintEnd_toEndOf="@+id/textView35"
-            app:layout_constraintTop_toTopOf="@+id/textView36" />
-
-        <TextView
-            android:id="@+id/textView39"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="12365322"
-            app:layout_constraintEnd_toEndOf="@+id/textView38"
-            app:layout_constraintTop_toTopOf="@+id/textView37" />
 
         <View
             android:id="@+id/divider4"
@@ -313,7 +249,7 @@
             android:background="?android:attr/listDivider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView37" />
+            app:layout_constraintTop_toBottomOf="@+id/textView50" />
         <!--  End of Payment Information  -->
 
         <!--  Commission Information -->
@@ -323,7 +259,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Commission Information"
+            android:text="Payment Summary"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/primary"
             app:layout_constraintEnd_toEndOf="parent"
@@ -336,7 +272,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="Commission-able Amount"
+            android:text="Payment Amount"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView40" />
 
@@ -345,7 +281,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Commission"
+            android:text="Currency"
             app:layout_constraintStart_toStartOf="@+id/textView41"
             app:layout_constraintTop_toBottomOf="@+id/textView41" />
 
@@ -354,7 +290,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
-            android:text="105000.0"
+            android:text="1050200.0"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/focusGreen"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textView41" />
 
@@ -363,9 +301,77 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="15750.0"
+            android:text="MMK"
             app:layout_constraintEnd_toEndOf="@+id/textView43"
             app:layout_constraintTop_toBottomOf="@+id/textView43" />
+
+        <TextView
+            android:id="@+id/textView47"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Taxes"
+            app:layout_constraintStart_toStartOf="@+id/textView28"
+            app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+        <TextView
+            android:id="@+id/textView49"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0.0 "
+            app:layout_constraintEnd_toEndOf="@+id/textView33"
+            app:layout_constraintTop_toTopOf="@+id/textView47" />
+
+        <TextView
+            android:id="@+id/textView50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Convenience Fee"
+            app:layout_constraintStart_toStartOf="@+id/textView47"
+            app:layout_constraintTop_toBottomOf="@+id/textView47" />
+
+        <TextView
+            android:id="@+id/textView51"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="200.0"
+            app:layout_constraintEnd_toEndOf="@+id/textView49"
+            app:layout_constraintTop_toTopOf="@+id/textView50" />
+
+        <TextView
+            android:id="@+id/textView52"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Gateway Type"
+            app:layout_constraintStart_toStartOf="@+id/textView42"
+            app:layout_constraintTop_toBottomOf="@+id/textView42" />
+
+        <TextView
+            android:id="@+id/textView53"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="KBZPay"
+            app:layout_constraintEnd_toEndOf="@+id/textView44"
+            app:layout_constraintTop_toTopOf="@+id/textView52" />
+
+        <TextView
+            android:id="@+id/textView54"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Transaction Id"
+            app:layout_constraintStart_toStartOf="@+id/textView52"
+            app:layout_constraintTop_toBottomOf="@+id/textView52" />
+
+        <TextView
+            android:id="@+id/textView55"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1231123"
+            app:layout_constraintEnd_toEndOf="@+id/textView53"
+            app:layout_constraintTop_toTopOf="@+id/textView54" />
 
         <!-- end of Commission Information -->
 

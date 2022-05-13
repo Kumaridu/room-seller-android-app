@@ -13,6 +13,8 @@
 
     <color name="stroke_color">#eaecef</color>
 
+
     <color name="primary">#FF6200EE</color>
+    <color name="textMuted">#d5d8da</color>
 
 </resources>

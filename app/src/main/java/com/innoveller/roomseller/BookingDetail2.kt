@@ -1,36 +1,38 @@
 package com.innoveller.roomseller
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TableLayout
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 
 class BookingDetail2 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.booking_detail_mock)
-
-        val subTotal = findViewById<TextView>(R.id.tv_sub_total)
-        val downArrow = findViewById<ImageView>(R.id.imageView)
+//
+//        val downArrow = findViewById<ImageView>(R.id.imageView5)
+        val rowLayout = findViewById<ConstraintLayout>(R.id.roomTypeRow1)
+//        val rowLayout2 = findViewById<ConstraintLayout>(R.id.roomTypeRow2)
         val table = findViewById<TableLayout>(R.id.tableRate)
+//        val table2 = findViewById<TableLayout>(R.id.tableRate1)
 
-        subTotal.setOnClickListener() {
+        rowLayout.setOnClickListener() {
             if(table.visibility == View.GONE) {
                 table.visibility = View.VISIBLE
             } else {
                 table.visibility = View.GONE
             }
         }
-        downArrow.setOnClickListener() {
-            if(table.visibility == View.GONE) {
-                table.visibility = View.VISIBLE
-            } else {
-                table.visibility = View.GONE
-            }
-        }
+
+//        rowLayout2.setOnClickListener() {
+//            if(table2.visibility == View.GONE) {
+//                table2.visibility = View.VISIBLE
+//            } else {
+//                table2.visibility = View.GONE
+//            }
+//        }
      }
 }
