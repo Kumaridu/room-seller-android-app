@@ -1,11 +1,14 @@
 package com.innoveller.roomseller
 
+import android.content.DialogInterface.OnShowListener
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.*
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.innoveller.roomseller.databinding.ActivityBookingDetailBinding
 import com.innoveller.roomseller.rest.api.RestApi
 import com.innoveller.roomseller.rest.api.RestApiBuilder
 import com.innoveller.roomseller.rest.dtos.Booking
@@ -14,7 +17,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+
 class BookingDetail : AppCompatActivity() {
+
+    private lateinit var binding: ActivityBookingDetailBinding
 
     companion object {
         const val BOOKING_ID = "booking_id"
@@ -22,82 +28,16 @@ class BookingDetail : AppCompatActivity() {
     }
 
     private lateinit var restApi: RestApi
-
-    private lateinit var loading: ProgressBar
-    private lateinit var layout: View
-
-    //Booking Details
-    lateinit var bookingRef: TextView
-    lateinit var numGuests: TextView
-    lateinit var bookedOn: TextView
-    lateinit var checkIn: TextView
-    lateinit var checkOut: TextView
-    lateinit var numNights: TextView
-    lateinit var numRooms: TextView
-
-    //Room TypeInfo
-    lateinit var maxOccupancy: TextView
-    lateinit var ratePlan: TextView
-    lateinit var extraBedCount: TextView
-    lateinit var roomTypeSubTotalAmount: TextView
-
-    //Guest Information
-    lateinit var guestName: TextView
-    lateinit var nationality: TextView
-    lateinit var phoneNo: TextView
-    lateinit var email: TextView
-    lateinit var specialRequest: TextView
-
-    //Payment Summary
-    lateinit var paymentType: TextView
-    lateinit var discount: TextView
-    lateinit var taxes: TextView
-    lateinit var convenienceFee: TextView
-    lateinit var paymentAmount: TextView
-    lateinit var gatewayType: TextView
-    lateinit var transactionId: TextView
-    lateinit var commission: TextView
+    private lateinit var guestEmail: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_booking_detail)
+        binding = ActivityBookingDetailBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
+        binding.pbLoading.visibility = View.VISIBLE
+        setSupportActionBar(binding.toolbar)
         restApi = RestApiBuilder.buildRestApi()
-
-        var toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
-        setSupportActionBar(toolbar)
-
-        bookingRef = findViewById(R.id.tv_booking_ref)
-        numGuests = findViewById(R.id.tv_num_guests)
-        bookedOn = findViewById(R.id.tv_booked_on)
-        checkIn = findViewById(R.id.tv_check_in)
-        checkOut = findViewById(R.id.tv_checkout)
-
-        numNights = findViewById(R.id.tv_num_nights)
-        numRooms = findViewById(R.id.tv_num_rooms)
-
-        maxOccupancy = findViewById(R.id.tv_max_occupancy)
-        ratePlan = findViewById(R.id.tv_rate_plan)
-        extraBedCount = findViewById(R.id.tv_extra_bed)
-        roomTypeSubTotalAmount = findViewById(R.id.tv_room_type_sub_total)
-
-        guestName = findViewById(R.id.tv_guest_name)
-        nationality = findViewById(R.id.tv_nationality)
-        phoneNo = findViewById(R.id.tv_phone_number)
-        email = findViewById(R.id.tv_email)
-        specialRequest = findViewById(R.id.tv_special_request)
-
-        paymentType = findViewById(R.id.tv_payment_type)
-        discount = findViewById(R.id.tv_discount)
-        taxes = findViewById(R.id.tv_taxes)
-        convenienceFee = findViewById(R.id.tv_convenience_fee)
-        paymentAmount = findViewById(R.id.tv_payment_amount)
-        gatewayType = findViewById(R.id.tv_gateway_type)
-        transactionId = findViewById(R.id.tv_transaction_id_label)
-        commission = findViewById(R.id.tv_commission)
-
-        loading = findViewById(R.id.pb_loading)
-        layout = findViewById(R.id.bookingDetail)
 
         //Get booking id from booking list click event listener or from firebase
         val bookingId = intent?.getStringExtra(BOOKING_ID)
@@ -107,15 +47,7 @@ class BookingDetail : AppCompatActivity() {
             getBookingById(bookingId)
         }
 
-        val rowInfo = findViewById<ConstraintLayout>(R.id.roomTypeRowInfo)
-        val table = findViewById<TableLayout>(R.id.tableRate)
-        rowInfo.setOnClickListener(){
-            if(table.visibility == View.GONE) {
-                table.visibility = View.VISIBLE
-            } else {
-                table.visibility = View.GONE
-            }
-        }
+        toggleRoomTypeRow()
     }
 
 //    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -133,18 +65,39 @@ class BookingDetail : AppCompatActivity() {
 //        return super.onOptionsItemSelected(item)
 //    }
 
+    fun emailOnClick(view: View) {
+        val dialogLayout = layoutInflater.inflate(R.layout.dialog_send_email_confirmation, null)
+        val sendEmail = dialogLayout.findViewById<TextView>(R.id.tv_send_to_email)
+        sendEmail.text = guestEmail
+
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Send Confirmation Email")
+            .setView(dialogLayout)
+            .setPositiveButton("Send Email"){ dialog, which->
+                Toast.makeText(this, "Will call to back end", Toast.LENGTH_SHORT).show()
+                dialog.dismiss()
+                // do something on positive button click
+            }
+            .show()
+    }
+
+    fun printOnClick(view: View) {
+        Toast.makeText(this, "I am going to print", Toast.LENGTH_SHORT).show()
+    }
+
     private fun getBookingById(bookingId : String) {
         val bookingCall = restApi.getBookingById(bookingId)
 
         bookingCall.enqueue(object: Callback<Booking> {
             override fun onResponse(call: Call<Booking>, response: Response<Booking>) {
-                loading.visibility = View.GONE
+                binding.pbLoading.visibility = View.GONE
                 if(response.isSuccessful) {
                     val booking = response.body()
                     if(booking != null) {
                         Log.d(TAG, "onResponse: Successfully got booking information")
                         if(booking != null) {
-                            mapDtoToView(booking)
+                            updateBookingDetail(booking)
+                            guestEmail = booking.customer.email
                         }
                     }
                 }
@@ -157,28 +110,38 @@ class BookingDetail : AppCompatActivity() {
         })
     }
 
-    private fun mapDtoToView(booking: Booking) {
-        bookingRef.text = booking.reference;
-        numGuests.text = booking.numberOfGuests.toString() + if(booking.numberOfGuests > 1) " Guests" else " Guest"
+    private fun updateBookingDetail(booking: Booking) {
+        binding.tvBookingRef.text = booking.reference
+        binding.tvNumGuests.text = booking.numberOfGuests.toString() + if(booking.numberOfGuests > 1) " Guests" else " Guest"
+        binding.tvBookedOn.text = DateFormatUtility.formatFriendlyDateTimeWithYear(booking.bookingDate)
+        binding.tvCheckIn.text = DateFormatUtility.formatFriendlyDate(booking.checkInDate)
+        binding.tvCheckout.text = DateFormatUtility.formatFriendlyDate(booking.checkOutDate)
+        binding.tvNumNights.text = booking.numberOfNight.toString() + if(booking.numberOfNight > 1) " nights" else " night"
+        binding.tvNumRooms.text = booking.numberOfRooms.toString() + if(booking.numberOfRooms > 1) " rooms" else " room"
 
-        bookedOn.text = DateFormatUtility.formatFriendlyDateTimeWithYear(booking.bookingDate)
-        checkIn.text = DateFormatUtility.formatFriendlyDate(booking.checkInDate)
-        checkOut.text =DateFormatUtility.formatFriendlyDate(booking.checkOutDate)
-        numNights.text = booking.numberOfNight.toString() + " nights"
-        numRooms.text = booking.numberOfRooms.toString() + " rooms"
+        binding.fragmentRoomType.tvMaxOccupancy.text = "2 max occupancy"
+        binding.fragmentRoomType.tvRatePlan.text = "Standard Rate"
+        binding.fragmentRoomType.tvExtraBed.text = "1 extra bed"
+        binding.fragmentRoomType.tvRoomTypeSubTotal.text = "MMK 1500000.0"
 
-        maxOccupancy.text = "2 max occupancy"
-        ratePlan.text = "Standard Rate"
-        extraBedCount.text = "1 extra bed"
-        roomTypeSubTotalAmount.text = "MMK 1500000.0"
+        binding.fragmentBookingSummaryInfo.tvGuestName.text = booking.customer.name
+        binding.fragmentBookingSummaryInfo.tvNationality.text = booking.customer.nationality
+        binding.fragmentBookingSummaryInfo.tvPhoneNumber.text = booking.customer.phoneNumber
+        binding.fragmentBookingSummaryInfo.tvEmail.text = booking.customer.email
+        binding.fragmentBookingSummaryInfo.tvSpecialRequest.text = booking.customer.specialRequest
+        binding.fragmentBookingSummaryInfo.tvPaymentAmount.text = booking.payment.amount.amount.toString()
+        binding.fragmentBookingSummaryInfo.tvGatewayType.text = booking.payment.method
+    }
 
-        guestName.text = booking.customer.name
-        nationality.text = booking.customer.nationality
-        phoneNo.text = booking.customer.phoneNumber
-        email.text = booking.customer.email
-        specialRequest.text = booking.customer.specialRequest
-
-        paymentAmount.text = booking.payment.amount.amount.toString()
-        gatewayType.text = booking.payment.method
+    private fun toggleRoomTypeRow() {
+        val rowInfo = binding.fragmentRoomType.roomTypeRowInfo
+        val table = binding.fragmentRoomType.tableRate
+        rowInfo.setOnClickListener(){
+            if(table.visibility == View.GONE) {
+                table.visibility = View.VISIBLE
+            } else {
+                table.visibility = View.GONE
+            }
+        }
     }
 }

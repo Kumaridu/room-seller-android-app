@@ -14,8 +14,8 @@ import com.innoveller.roomseller.rest.dtos.Booking;
 import com.innoveller.roomseller.utilities.DateFormatUtility;
 
 import java.text.ParseException;
-import java.util.Date;
 import java.util.List;
+import com.innoveller.roomseller.databinding.ItemBookingInfoBinding;
 
 public class BookingInfoViewAdapter extends RecyclerView.Adapter<BookingInfoViewAdapter.MyViewHolder> {
 
@@ -53,8 +53,6 @@ public class BookingInfoViewAdapter extends RecyclerView.Adapter<BookingInfoView
         holder.guestName.setText(booking.customer.name + " | " + booking.numberOfGuests + " " + guest + " | " + booking.numberOfRooms + " " + room);
         holder.numNights.setText(booking.numberOfNight + " " + night);
 
-        // will modify later with real time, this is for test
-//        holder.bookedOn.setText("April 21 2022, 01:19pm");
 
         try {
             holder.bookedOn.setText(DateFormatUtility.formatFriendlyDateTimeWithYear(booking.bookingDate));
@@ -85,13 +83,14 @@ public class BookingInfoViewAdapter extends RecyclerView.Adapter<BookingInfoView
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            guestName = itemView.findViewById(R.id.tv_row_guest_name_num_guest_num_rooms);
-            numNights = itemView.findViewById(R.id.tv_row_nights);
-            bookingRef = itemView.findViewById(R.id.tv_row_booking_ref);
-            bookedOn = itemView.findViewById(R.id.tv_row_booked_on);
-            checkInDate = itemView.findViewById(R.id.tv_checkIn);
-            checkOutDate = itemView.findViewById(R.id.tv_row_checkout);
-            bookingLayout = itemView.findViewById(R.id.bookingRowLayout2);
+            ItemBookingInfoBinding binding = ItemBookingInfoBinding.bind(itemView);
+            guestName = binding.tvRowGuestNameNumGuestNumRooms;
+            numNights = binding.tvRowNights;
+            bookingRef = binding.tvRowBookingRef;
+            bookedOn = binding.tvRowBookedOn;
+            checkInDate = binding.tvCheckIn;
+            checkOutDate = binding.tvRowCheckout;
+            bookingLayout = binding.bookingRowLayout2;
         }
     }
 }

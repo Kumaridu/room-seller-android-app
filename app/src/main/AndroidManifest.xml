@@ -12,9 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RoomSeller">
         <activity
-            android:name=".ListUpdate"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="false"
             android:label="@string/title_activity_main"
@@ -30,9 +27,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".BookingDetail2"
-            android:exported="false" />
         <activity
             android:name=".BookingDetail"
             android:exported="false"

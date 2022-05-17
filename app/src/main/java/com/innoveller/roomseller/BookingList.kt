@@ -18,10 +18,11 @@ import com.innoveller.roomseller.rest.dtos.Booking
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
+import com.innoveller.roomseller.databinding.ActivityBookingListBinding
 
 class BookingList : AppCompatActivity() {
 
+    private lateinit var binding: ActivityBookingListBinding
     // static variable at kotlin
     companion object {
         const val TAG = "BookingList"
@@ -42,10 +43,11 @@ class BookingList : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_booking_list)
+        binding = ActivityBookingListBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        loadingBar = findViewById(R.id.pb_loading)
-        recyclerView = findViewById(R.id.recyclerview)
+        loadingBar = binding.pbLoading
+        recyclerView = binding.recyclerview
         layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
         restApi = RestApiBuilder.buildRestApi()
