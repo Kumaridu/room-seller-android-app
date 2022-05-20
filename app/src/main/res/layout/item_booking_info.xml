@@ -129,7 +129,6 @@
             app:layout_constraintEnd_toStartOf="@+id/tv_row_checkout"
             app:layout_constraintStart_toEndOf="@+id/tv_checkIn" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>

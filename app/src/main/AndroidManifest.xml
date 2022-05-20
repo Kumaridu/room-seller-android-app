@@ -16,10 +16,7 @@
             android:exported="false"
             android:label="@string/title_activity_main"
             android:theme="@style/Theme.RoomSeller.NoActionBar"></activity>
-        <activity
-            android:name=".BookingList"
-            android:exported="false"
-            android:launchMode="singleTask" />
+
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,11 +27,9 @@
         <activity
             android:name=".BookingDetail"
             android:exported="false"
-            android:label="Booking Details"
-            android:parentActivityName=".BookingList">
+            android:label="Booking Details">
             <intent-filter>
                 <action android:name=".BookingDetail" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

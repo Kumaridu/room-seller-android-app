@@ -29,7 +29,7 @@ class LoginActivity : AppCompatActivity() {
                 if (!task.isSuccessful) {
                     msg = "Subscription Failed"
                 }
-                Log.d(BookingList.TAG, msg!!)
+                Log.d("Login Activity", msg!!)
             }
     }
 }

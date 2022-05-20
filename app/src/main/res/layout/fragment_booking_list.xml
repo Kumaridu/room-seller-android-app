@@ -2,8 +2,31 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/stroke_color"
     android:orientation="vertical"
     android:id="@+id/goToDetail">
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:padding="20dp">-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="20dp"-->
+<!--            android:layout_height="20dp"-->
+<!--            android:src="@drawable/calendar"-->
+<!--            android:layout_marginRight="8dp"/>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_filter_date"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textAppearance="@style/TextAppearance.AppCompat.Medium"-->
+<!--            android:text="Checking In Date On May 19, 2022">-->
+<!--        </TextView>-->
+
+<!--    </LinearLayout>-->
 
     <ProgressBar
         android:id="@+id/pb_loading"
@@ -12,9 +35,10 @@
         android:layout_gravity="center"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview"
+        android:id="@+id/rv_booking_list"
+        android:paddingBottom="50dp"
+        android:clipToPadding="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"/>
-
 </LinearLayout>

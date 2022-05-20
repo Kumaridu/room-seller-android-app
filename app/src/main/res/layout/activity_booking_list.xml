@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@android:color/darker_gray"
+    android:background="@color/stroke_color"
     android:id="@+id/goToDetail">
 
     <ProgressBar
@@ -13,7 +13,7 @@
     android:layout_gravity="center"/>
 
     <androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/recyclerview"
+    android:id="@+id/rv_booking_list"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="5dp"/>

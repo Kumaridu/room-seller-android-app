@@ -11,7 +11,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.innoveller.roomseller.firebase.MyFireBaseMessagingService.Companion.INTENT_ACTION_SEND_MESSAGE
-import com.innoveller.roomseller.adapter.BookingInfoViewAdapter
+import com.innoveller.roomseller.adapter.BookingInfoViewAdapter4
 import com.innoveller.roomseller.rest.api.RestApi
 import com.innoveller.roomseller.rest.api.RestApiBuilder
 import com.innoveller.roomseller.rest.dtos.Booking
@@ -20,6 +20,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import com.innoveller.roomseller.databinding.ActivityBookingListBinding
 
+//No need this class
 class BookingList : AppCompatActivity() {
 
     private lateinit var binding: ActivityBookingListBinding
@@ -30,7 +31,7 @@ class BookingList : AppCompatActivity() {
 
      lateinit var receiver : BroadcastReceiver
      private lateinit var restApi: RestApi
-     private lateinit var adapter: BookingInfoViewAdapter
+     private lateinit var adapter: BookingInfoViewAdapter4
      private lateinit var recyclerView: RecyclerView
      private lateinit var loadingBar: ProgressBar
      private lateinit var layoutManager : LinearLayoutManager
@@ -47,7 +48,7 @@ class BookingList : AppCompatActivity() {
         setContentView(binding.root)
 
         loadingBar = binding.pbLoading
-        recyclerView = binding.recyclerview
+        recyclerView = binding.rvBookingList
         layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
         restApi = RestApiBuilder.buildRestApi()
@@ -92,7 +93,6 @@ class BookingList : AppCompatActivity() {
                 }
             }
         }
-
     }
 
     override fun onResume() {
@@ -120,7 +120,10 @@ class BookingList : AppCompatActivity() {
                     val bookingListResBody = response.body()
                     if(bookingListResBody != null) {
                         Log.d(TAG, "onResponse: Get Booking List")
-                        adapter = BookingInfoViewAdapter(bookingListResBody)
+                        adapter =
+                            BookingInfoViewAdapter4(
+                                bookingListResBody
+                            )
                         recyclerView.adapter = adapter
 
                         adapter.setOnClickListener { view, booking ->

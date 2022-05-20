@@ -63,6 +63,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Booking Reference"
+                    android:textColor="@color/textMuted"
+                    android:textSize="12sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -70,6 +72,7 @@
                     android:id="@+id/tv_booking_ref"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="?attr/colorAccent"
                     android:text="2311-3334"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     app:layout_constraintStart_toStartOf="@+id/tv_booking_ref_label"
@@ -80,6 +83,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Booked On"
+                    android:textColor="@color/textMuted"
+                    android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -95,12 +100,12 @@
 
 
             <com.google.android.material.card.MaterialCardView
-                style="?attr/materialCardViewElevatedStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="10dp">
+                android:layout_marginEnd="10dp"
+                app:cardBackgroundColor="@color/textMuted">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -116,6 +121,8 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
                         android:text="Check In"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -124,6 +131,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="2022-04-25"
+                        android:textColor="@color/white"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         app:layout_constraintStart_toStartOf="@+id/tv_check_in_label"
                         app:layout_constraintTop_toBottomOf="@+id/tv_check_in_label" />
@@ -134,6 +142,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
                         android:text="Check Out"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/tv_check_in_label" />
 
@@ -142,6 +152,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="2022-04-27"
+                        android:textColor="@color/white"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         app:layout_constraintEnd_toEndOf="@+id/textView8"
                         app:layout_constraintTop_toBottomOf="@+id/textView8" />
@@ -164,6 +175,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="2 nights"
+                        android:textColor="@color/white"
                         app:layout_constraintBaseline_toBaselineOf="@+id/tv_check_in_label"
                         app:layout_constraintEnd_toStartOf="@+id/textView8"
                         app:layout_constraintStart_toEndOf="@+id/tv_check_in_label" />
@@ -186,6 +198,7 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="16dp"
                         android:text="3 guests"
+                        android:textColor="@color/white"
                         app:layout_constraintStart_toEndOf="@+id/imageView3"
                         app:layout_constraintTop_toBottomOf="@+id/view3" />
 
@@ -195,6 +208,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:text="2 rooms"
+                        android:textColor="@color/white"
                         app:layout_constraintEnd_toEndOf="@+id/tv_checkout"
                         app:layout_constraintTop_toBottomOf="@+id/view3" />
 
@@ -219,14 +233,39 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-            <include
-                android:id="@+id/fragment_room_type"
-                layout="@layout/fragment_room_type"
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="10dp" />
+                android:layout_marginEnd="10dp"
+                app:strokeColor="@color/stroke_color"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingTop="16dp">
+
+                <TextView
+                    android:id="@+id/tv_room_info_section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="Room Information"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="?attr/colorAccent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_room_type_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
 
             <include
                 android:id="@+id/fragment_booking_summary_info"
