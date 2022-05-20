@@ -67,8 +67,9 @@ class BookingDetail : AppCompatActivity() {
 
     fun emailOnClick(view: View) {
         val dialogLayout = layoutInflater.inflate(R.layout.dialog_send_email_confirmation, null)
-        val sendEmail = dialogLayout.findViewById<TextView>(R.id.edit_booking_ref)
-        sendEmail.text = guestEmail
+//        val dialogLayout = layoutInflater.inflate(R.layout.dialog_calendar_booking_checkin_date, null)
+//        val sendEmail = dialogLayout.findViewById<TextView>(R.id.edit_booking_ref)
+//        sendEmail.text = guestEmail
 
         MaterialAlertDialogBuilder(this)
             .setTitle("Send Confirmation Email")

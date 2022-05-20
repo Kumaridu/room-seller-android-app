@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/ll_calendar_booking_and_checkIn_date"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/tv_date_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search Bookings By"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingBottom="10dp"/>
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:singleSelection="true">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Booking Date"
+            style="?attr/materialButtonOutlinedStyle"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Check In Date"
+            style="?attr/materialButtonOutlinedStyle"/>
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <CalendarView
+        android:id="@+id/clv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

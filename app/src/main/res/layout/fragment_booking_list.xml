@@ -1,32 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/stroke_color"
     android:orientation="vertical"
     android:id="@+id/goToDetail">
 
-<!--    <LinearLayout-->
+    <LinearLayout
+        android:id="@+id/search_by_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="?attr/colorAccent"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:weightSum="4">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_calendar"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/tv_filter_date"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="2"
+            android:text="Checking In Date On May 19, 2022"/>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_down_arrow"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal"
+            app:tint="@color/white" />
+
+    </LinearLayout>
+
+<!--    <SearchView-->
 <!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="horizontal"-->
-<!--        android:padding="20dp">-->
-
-<!--        <ImageView-->
-<!--            android:layout_width="20dp"-->
-<!--            android:layout_height="20dp"-->
-<!--            android:src="@drawable/calendar"-->
-<!--            android:layout_marginRight="8dp"/>-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/tv_filter_date"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textAppearance="@style/TextAppearance.AppCompat.Medium"-->
-<!--            android:text="Checking In Date On May 19, 2022">-->
-<!--        </TextView>-->
-
-<!--    </LinearLayout>-->
+<!--        android:layout_height="match_parent" />-->
 
     <ProgressBar
         android:id="@+id/pb_loading"
@@ -41,4 +62,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"/>
+
 </LinearLayout>

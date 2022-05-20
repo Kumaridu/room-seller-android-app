@@ -7,16 +7,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.innoveller.roomseller.BookingDetail
+import com.innoveller.roomseller.R
 import com.innoveller.roomseller.adapter.BookingInfoViewAdapter
 import com.innoveller.roomseller.databinding.FragmentBookingListBinding
 import com.innoveller.roomseller.rest.dtos.Booking
 import com.innoveller.roomseller.utilities.EndlessRecyclerViewScrollListener
-import com.innoveller.roomseller.utilities.EndlessRecyclerViewScrollListener.LoadMoreListener
 
 class BookingListFragment : Fragment() {
 
@@ -35,6 +37,7 @@ class BookingListFragment : Fragment() {
         val root: View = binding.root
         val progressBar: ProgressBar = binding.pbLoading
         val recyclerView: RecyclerView = binding.rvBookingList
+        val searchByDateLayout = binding.searchByDate
         val layoutManager = LinearLayoutManager(context)
         var adapter = BookingInfoViewAdapter(bookingList)
 
@@ -58,6 +61,22 @@ class BookingListFragment : Fragment() {
         recyclerView.addOnScrollListener(EndlessRecyclerViewScrollListener(layoutManager) {
             bookingViewModel.loadBookingList(progressBar)
         })
+
+        searchByDateLayout.setOnClickListener {
+            val inflater = LayoutInflater.from(context)
+            var dialogLayout = inflater.inflate(R.layout.dialog_calendar_booking_checkin_date, null)
+
+            MaterialAlertDialogBuilder(inflater.context)
+                .setView(dialogLayout)
+                .setPositiveButton("SELECT"){ dialog, which->
+                    dialog.dismiss()
+                    // do something on positive button click
+                }
+                .setNegativeButton("CANCEL") {dialog, which->
+                    dialog.dismiss()
+                }
+                .show()
+        }
 
         return root
     }
