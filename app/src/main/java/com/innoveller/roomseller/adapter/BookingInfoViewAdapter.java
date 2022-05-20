@@ -24,7 +24,7 @@ public class BookingInfoViewAdapter extends RecyclerView.Adapter< RecyclerView.V
     private final int VIEW_TYPE_ITEM = 0;
     private final int VIEW_TYPE_LOADING = 1;
     private List<Booking> bookingList;
-    private BookingInfoViewAdapter4.OnBookingClickListener onBookingClickListener;
+    private BookingInfoViewAdapter.OnBookingClickListener onBookingClickListener;
 
     public BookingInfoViewAdapter(List<Booking> bookingList) {
         this.bookingList = bookingList;
@@ -34,7 +34,7 @@ public class BookingInfoViewAdapter extends RecyclerView.Adapter< RecyclerView.V
         void onClick(View view, Booking booking);
     }
 
-    public void setOnClickListener(BookingInfoViewAdapter4.OnBookingClickListener clickListener) {
+    public void setOnClickListener(BookingInfoViewAdapter.OnBookingClickListener clickListener) {
         this.onBookingClickListener = clickListener;
     }
 

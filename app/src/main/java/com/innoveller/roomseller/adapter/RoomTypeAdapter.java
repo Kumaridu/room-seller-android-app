@@ -15,7 +15,7 @@ import com.innoveller.roomseller.rest.dtos.RoomType;
 
 import java.util.List;
 
-public class RoomTypeAdapter extends RecyclerView.Adapter<RoomTypeAdapter.MyViewHolder> {
+public class RoomTypeAdapter extends RecyclerView.Adapter<RoomTypeAdapter.RoomTypeViewHolder> {
     private List<RoomType> roomTypeList;
     private OnRoomTypeClickListener clickListener;
 
@@ -29,13 +29,13 @@ public class RoomTypeAdapter extends RecyclerView.Adapter<RoomTypeAdapter.MyView
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RoomTypeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_room_type,parent,false);
-        return new MyViewHolder(view);
+        return new RoomTypeViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RoomTypeViewHolder holder, int position) {
         final RoomType roomType = roomTypeList.get(position);
 
         holder.roomType.setText(roomType.roomType);
@@ -60,11 +60,11 @@ public class RoomTypeAdapter extends RecyclerView.Adapter<RoomTypeAdapter.MyView
         void onClick(View view, RoomType roomType);
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder {
+    class RoomTypeViewHolder extends RecyclerView.ViewHolder {
         private TextView roomType, maxOccupancy, subTotal, ratePlan;
         private ConstraintLayout roomTypeRowInfo;
 
-        public MyViewHolder(View itemView) {
+        public RoomTypeViewHolder(View itemView) {
             super(itemView);
             ItemRoomTypeBinding binding = ItemRoomTypeBinding.bind(itemView);
             roomType = binding.tvRoomType;

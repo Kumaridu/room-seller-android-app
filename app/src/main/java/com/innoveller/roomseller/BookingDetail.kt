@@ -63,23 +63,7 @@ class BookingDetail : AppCompatActivity() {
             getBookingById(bookingId.toString())
         }
 
-//        toggleRoomTypeRow()
     }
-
-//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-//        menuInflater.inflate(R.menu.send_confirmation, menu)
-//        return super.onCreateOptionsMenu(menu)
-//    }
-//
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        when(item.itemId) {
-//            R.id.action_send_confirmation -> Toast.makeText(this, "Will send email confirmation", Toast.LENGTH_SHORT).show()
-//            else -> {
-//
-//            }
-//        }
-//        return super.onOptionsItemSelected(item)
-//    }
 
     fun emailOnClick(view: View) {
         val dialogLayout = layoutInflater.inflate(R.layout.dialog_send_email_confirmation, null)
@@ -149,12 +133,6 @@ class BookingDetail : AppCompatActivity() {
         binding.tvCheckout.text = DateFormatUtility.formatFriendlyDate(booking.checkOutDate)
         binding.tvNumNights.text = booking.numberOfNight.toString() + if(booking.numberOfNight > 1) " nights" else " night"
         binding.tvNumRooms.text = booking.numberOfRooms.toString() + if(booking.numberOfRooms > 1) " rooms" else " room"
-
-
-//        binding.fragmentRoomType.tvMaxOccupancy.text = "2 max occupancy"
-//        binding.fragmentRoomType.tvRatePlan.text = "Standard Rate"
-//        binding.fragmentRoomType.tvExtraBed.text = "1 extra bed"
-//        binding.fragmentRoomType.tvRoomTypeSubTotal.text = "MMK 1500000.0"
 
         binding.fragmentBookingSummaryInfo.tvGuestName.text = booking.customer.name
         binding.fragmentBookingSummaryInfo.tvNationality.text = booking.customer.nationality

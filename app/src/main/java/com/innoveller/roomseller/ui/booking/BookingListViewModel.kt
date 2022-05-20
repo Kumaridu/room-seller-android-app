@@ -14,28 +14,12 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class BookingListViewModel : ViewModel() {
-    private val TAG = "BookingViewModel"
 
     private var resultMutableLiveData: MutableLiveData<List<Booking>> = MutableLiveData<List<Booking>>()
-//    private val resultMutableLiveData = MutableLiveData<List<Booking>>()
-
-    var previousResult = listOf<Booking>();
-//    val moreProducts = MutableLiveData<List<Booking>>()
     private val restApi: RestApi = RestApiBuilder.buildRestApi()
-
-
-
-/* later */
-
-    val list = mutableListOf<Booking>()
-
 
     fun getBookings(): LiveData<List<Booking>> {
         return resultMutableLiveData
-    }
-
-    fun <T> MutableLiveData<T>.notifyObserver() {
-        this.value = this.value
     }
 
     fun loadBookingList(loadingBar: ProgressBar) {
@@ -43,23 +27,11 @@ class BookingListViewModel : ViewModel() {
         bookingListCall.enqueue(object : Callback<List<Booking>> {
             override fun onResponse(call: Call<List<Booking>>, response: Response<List<Booking>>) {
                 if (response.isSuccessful) {
-                    Log.d(TAG, "onResponse: Booking View Model geting booking list")
+                    Log.d(TAG, "onResponse: Booking View Model getting booking list")
                     loadingBar.visibility = View.GONE
                     val bookingListBody = response.body()
                     if (bookingListBody != null) {
-
-                        resultMutableLiveData.value = bookingListBody!!
-                        Log.d(TAG, "onResponse: result list size: " + resultMutableLiveData.value!!.size)
-
-//                        resultMutableLiveData.value = bookingListBody!!
-//                        moreProducts.postValue(bookingListBody!!)
-//                        resultMutableLiveData.value = resultMutableLiveData.value.orEmpty() + moreProducts.value.orEmpty()
-//
-//                        list.addAll(resultMutableLiveData.value!!)
-//                        list.addAll(bookingListBody)
-//                        Log.d(TAG, "onResponse: Get Booking List:")
-//                        resultMutableLiveData.value = list
-//
+                        resultMutableLiveData.postValue(bookingListBody!!)
                     }
                 }
             }
@@ -69,5 +41,9 @@ class BookingListViewModel : ViewModel() {
                 t.printStackTrace()
             }
         })
+    }
+
+    companion object {
+        private const val TAG = "BookingViewModel"
     }
 }
