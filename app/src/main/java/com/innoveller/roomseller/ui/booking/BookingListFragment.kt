@@ -40,21 +40,27 @@ class BookingListFragment : Fragment() {
         val searchView = binding.tvSearchFilter
         val layoutManager = LinearLayoutManager(context)
         var adapter = BookingInfoViewAdapter(bookingList)
-        var firstTimeLoad  = 0
+        var isFirstTimeLoad = true
         var searchQuery = ""
+        var isSearch = false
+        var pbBottomProgressBar = binding.pbBottomLoading
 
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = adapter
 
         bookingViewModel.loadBookingList(progressBar, searchQuery)
         bookingViewModel.getBookings().observe(viewLifecycleOwner) { result ->
-            if(firstTimeLoad == 0) {
+            if(isSearch) {
+                if(result.isEmpty()) {
+                    Toast.makeText(context,"No Match Found", Toast.LENGTH_LONG).show()
+                }
+                isSearch = false
+            }
+            if(isFirstTimeLoad) {
                 EndlessRecyclerViewScrollListener.previousItemTotalCount = 0;
                 bookingList.clear()
+                isFirstTimeLoad = false
             }
-            firstTimeLoad++
-            Log.d(TAG, "onCreateView: observe live data changes and notify the adapter")
-//            adapter.updateAdapter(result)
             bookingList.addAll(result)
             adapter.notifyDataSetChanged()
         }
@@ -67,7 +73,7 @@ class BookingListFragment : Fragment() {
 
         //Endless Scroll View
         recyclerView.addOnScrollListener(EndlessRecyclerViewScrollListener(layoutManager) {
-            bookingViewModel.loadBookingList(progressBar, searchQuery)
+            bookingViewModel.loadBookingList(pbBottomProgressBar, searchQuery)
         })
 
 
@@ -83,41 +89,20 @@ class BookingListFragment : Fragment() {
             searchView.setQuery("", false)
             searchEditText.clearFocus()
             searchQuery = ""
-            firstTimeLoad = 0
+            isFirstTimeLoad = true
             bookingViewModel.loadBookingList(progressBar, searchQuery)
         }
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 searchQuery = query!!
-
+                isSearch = true
+                //Resetting the previous Item total count to 0
                 EndlessRecyclerViewScrollListener.previousItemTotalCount = 0
-                firstTimeLoad = 0
+                isFirstTimeLoad = true
 
                 bookingViewModel.loadBookingList(progressBar, query!!)
                 Log.d(TAG, "onQueryTextSubmit: Search List: ${bookingList.size}")
-//                bookingViewModel.getSearchedBookings().observe(viewLifecycleOwner) { result ->
-//
-//                    Log.d(TAG, "onCreateView: observe live data changes and notify the adapter: ${result.size}")
-//                    bookingList.clear()
-//                    bookingList.addAll(result)
-////                    searchBookingList.addAll(result)
-//                    adapter.notifyDataSetChanged()
-//
-////                    adapter.updateAdapter(result)
-//                    Log.d(TAG, "onQueryTextSubmit: recycler view layout manager: ${recyclerView.layoutManager}")
-//                }
-
-//                val filterBookingList = bookingList.filter { booking -> booking.customer.name.contains(query!!, ignoreCase = true) }
-//                if(filterBookingList.isNotEmpty()) {
-//                    Log.d(TAG, "onQueryTextSubmit: filter booking list size: " + filterBookingList.size)
-//                    bookingList = filterBookingList as MutableList<Booking>
-//                    adapter.updateAdapter(bookingList)
-//                } else {
-//                    bookingList = filterBookingList as MutableList<Booking>
-//                    adapter.updateAdapter(filterBookingList)
-//                    Toast.makeText(context,"No Match Found", Toast.LENGTH_LONG).show()
-//                }
                 return false;
             }
 

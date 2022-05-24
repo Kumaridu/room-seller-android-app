@@ -17,40 +17,48 @@ import java.util.*
 class BookingListViewModel : ViewModel() {
 
     private var resultMutableLiveData: MutableLiveData<List<Booking>> = MutableLiveData<List<Booking>>()
-    private var searchMutableLiveData: MutableLiveData<List<Booking>> = MutableLiveData<List<Booking>>()
     private val restApi: RestApi = RestApiBuilder.buildRestApi()
+    private var apiCallCount = 0;
 
     fun getBookings(): LiveData<List<Booking>> {
         return resultMutableLiveData
     }
 
-    fun getSearchedBookings(): LiveData<List<Booking>> {
-        return searchMutableLiveData
-    }
-
     fun loadBookingList(loadingBar: ProgressBar, query: String) {
-        if(query.isNotBlank()) {
-            Log.d(TAG, "loadBookingList: There is search query: $query")
-            val bookingCall = restApi.getBookingById("1")
-            bookingCall.enqueue(object: Callback<Booking> {
-                override fun onResponse(call: Call<Booking>, response: Response<Booking>) {
-                    if (response.isSuccessful) {
-                        Log.d(TAG, "onResponse: Booking View Model getting booking list")
+        apiCallCount++
+        Log.d(TAG, "loadBookingList: Api call count: $apiCallCount")
+        loadingBar.visibility = View.VISIBLE
+        if(query.isNotBlank()){
+                Log.d(TAG, "loadBookingList: There is search query: $query")
+                val bookingCall = restApi.getBookingById("1")
+                bookingCall.enqueue(object: Callback<Booking> {
+                    override fun onResponse(call: Call<Booking>, response: Response<Booking>) {
                         loadingBar.visibility = View.GONE
-                        val bookingListBody = response.body()
-                        val mockList = Arrays.asList(bookingListBody!!, bookingListBody,  bookingListBody,  bookingListBody,  bookingListBody,  bookingListBody,  bookingListBody,  bookingListBody)
-                        if (mockList != null) {
-                        resultMutableLiveData.postValue(mockList!!)
-//                            searchMutableLiveData.postValue(mockList!!)
+                        if (response.isSuccessful) {
+                            Log.d(TAG, "onResponse: Booking View Model getting booking list")
+                            val bookingListBody = response.body()
+//                        val mockList = Arrays.asList(bookingListBody!!, bookingListBody,  bookingListBody,  bookingListBody,  bookingListBody, bookingListBody,  bookingListBody,  bookingListBody)
+                            val mockList = Arrays.asList(bookingListBody!!, bookingListBody, bookingListBody,  bookingListBody,  bookingListBody,)
+                            if (mockList != null) {
+                                //this condition will be from server to let us know if there is more data or not to fetch. Currently just make mock data
+                                if(apiCallCount >= 6) {
+                                    resultMutableLiveData.postValue(listOf<Booking>())
+                                } else {
+                                    if(!query.contentEquals("si", ignoreCase = true)) {
+                                        resultMutableLiveData.postValue(listOf<Booking>())
+                                    } else {
+                                        resultMutableLiveData.postValue(mockList!!)
+                                    }
+                                }
+                            }
                         }
                     }
-                }
 
-                override fun onFailure(call: Call<Booking>, t: Throwable) {
-                    Log.d(TAG,"onFailure $t")
-                    t.printStackTrace()
-                }
-            })
+                    override fun onFailure(call: Call<Booking>, t: Throwable) {
+                        Log.d(TAG,"onFailure $t")
+                        t.printStackTrace()
+                    }
+                })
         } else {
             val bookingListCall = restApi.bookingList
             bookingListCall.enqueue(object : Callback<List<Booking>> {
@@ -60,7 +68,12 @@ class BookingListViewModel : ViewModel() {
                         loadingBar.visibility = View.GONE
                         val bookingListBody = response.body()
                         if (bookingListBody != null) {
-                            resultMutableLiveData.postValue(bookingListBody!!)
+                            //this condition will be from server to let us know if there is more data or not to fetch. Currently just make mock data
+                            if(apiCallCount >= 6) {
+                                resultMutableLiveData.postValue(listOf<Booking>())
+                            } else {
+                                resultMutableLiveData.postValue(bookingListBody!!)
+                            }
                         }
                     }
                 }
