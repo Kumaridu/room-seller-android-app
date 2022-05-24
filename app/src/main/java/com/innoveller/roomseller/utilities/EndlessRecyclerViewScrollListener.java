@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.RecyclerView;
 public class EndlessRecyclerViewScrollListener extends RecyclerView.OnScrollListener {
     private static final String TAG = "EndlessRecyclerViewScrollListener";
     private boolean loading = true;
-    private int previousItemTotalCount = 0;
+    private static int viewScrollCount = 0;
+    public static int previousItemTotalCount = 0;
+//    private int previousItemTotalCount = 0;
     private final LinearLayoutManager layoutManager;
     private final LoadMoreListener loadMoreListener;
     public RecyclerView recyclerView;
@@ -21,11 +23,16 @@ public class EndlessRecyclerViewScrollListener extends RecyclerView.OnScrollList
 
     public EndlessRecyclerViewScrollListener(LinearLayoutManager layoutManager, LoadMoreListener loadMoreListener) {
         this.layoutManager = layoutManager;
+        viewScrollCount++;
+        Log.d(TAG, "EndlessRecyclerViewScrollListener: Hi I am view scroll instance: "+ viewScrollCount);
+        Log.d(TAG, "EndlessRecyclerViewScrollListener: Hey I am layout manager: " + layoutManager);
         this.loadMoreListener = loadMoreListener;
     }
 
     @Override
     public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+        Log.d(TAG, "onScrolled: Previous item count: "+ previousItemTotalCount);
+        Log.d(TAG, "onScrolled: I was called");
         super.onScrolled(recyclerView, dx, dy);
         if(dy > 0) {
             int visibleItemCount = recyclerView.getChildCount();

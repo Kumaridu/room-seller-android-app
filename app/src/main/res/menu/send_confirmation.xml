@@ -5,6 +5,7 @@
     <item
         android:id="@+id/action_send_confirmation"
         android:orderInCategory="1"
+        android:icon="@drawable/arrow_back"
         android:title="Sent Confirmation Email"
         app:showAsAction="ifRoom"/>
 </menu>

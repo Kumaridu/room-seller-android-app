@@ -1,5 +1,6 @@
 package com.innoveller.roomseller.adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -84,7 +85,6 @@ public class BookingInfoViewAdapter extends RecyclerView.Adapter< RecyclerView.V
             LoadingViewHolder loadingViewHolder = (LoadingViewHolder) holder;
             loadingViewHolder.progressBar.setIndeterminate(true);
         }
-
     }
 
     @Override
@@ -94,7 +94,17 @@ public class BookingInfoViewAdapter extends RecyclerView.Adapter< RecyclerView.V
 
     @Override
     public int getItemViewType(int position) {
-        return position == bookingList.size() - 1 ? VIEW_TYPE_LOADING : VIEW_TYPE_ITEM;
+        if(position == bookingList.size() - 1) {
+            Log.d("Get Item View Type: ", "getItemViewType: I am at last position: "+ position + " This is booking list size: "+ bookingList.size());
+        }
+        //the 7 come from linear layout manager, this should not be hard code
+//        return bookingList.size() > 7 && position == bookingList.size() ? VIEW_TYPE_LOADING : VIEW_TYPE_ITEM; // This work good on search but not on list not appearing loading
+        return bookingList.size() > 7 && position == bookingList.size() - 1 ? VIEW_TYPE_LOADING : VIEW_TYPE_ITEM;
+    }
+
+    public void updateAdapter(List<Booking> bookings) {
+        this.bookingList =  bookings;
+        notifyDataSetChanged();
     }
 
     class BookingItemViewHolder extends RecyclerView.ViewHolder {

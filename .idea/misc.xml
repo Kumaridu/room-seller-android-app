@@ -86,6 +86,8 @@
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/layout/item_room_type.xml" value="0.36666666666666664" />
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/layout/nav_header_main.xml" value="0.27239583333333334" />
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/menu/activity_main_drawer.xml" value="0.27239583333333334" />
+        <entry key="..\:/hello/room-seller-android-app/app/src/main/res/menu/main.xml" value="0.36666666666666664" />
+        <entry key="..\:/hello/room-seller-android-app/app/src/main/res/menu/send_confirmation.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
