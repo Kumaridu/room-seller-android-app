@@ -27,7 +27,7 @@
             app:tint="@color/white" />
 
         <TextView
-            android:id="@+id/tv_filter_date"
+            android:id="@+id/tv_search_field_date"
             android:textColor="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

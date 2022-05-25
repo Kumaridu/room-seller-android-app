@@ -17,11 +17,13 @@
         android:paddingBottom="10dp"/>
 
     <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/btn_toggle_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:singleSelection="true">
 
         <Button
+            android:id="@+id/btn_search_by_booking_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -29,6 +31,7 @@
             style="?attr/materialButtonOutlinedStyle"/>
 
         <Button
+            android:id="@+id/btn_search_by_check_in_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
