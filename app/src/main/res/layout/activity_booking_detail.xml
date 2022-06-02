@@ -30,10 +30,15 @@
         android:layout_gravity="center"
         android:visibility="gone"/>
 
+    <LinearLayout
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_dark_blue"/>
+
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -64,7 +69,6 @@
                     android:layout_height="wrap_content"
                     android:text="Booking Reference"
                     android:textColor="@color/textMuted"
-                    android:textSize="12sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -72,30 +76,48 @@
                     android:id="@+id/tv_booking_ref"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="?attr/colorAccent"
                     android:text="2311-3334"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    app:layout_constraintStart_toStartOf="@+id/tv_booking_ref_label"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_booking_ref_label" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_booking_ref_label" />
 
                 <TextView
                     android:id="@+id/tv_booked_on_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
                     android:text="Booked On"
                     android:textColor="@color/textMuted"
-                    android:textSize="12sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintStart_toStartOf="@+id/tv_booking_ref_label"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_booking_ref_label" />
 
                 <TextView
                     android:id="@+id/tv_booked_on"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="April 24 2022, 01:30pm"
+                    android:text="April 24 2022, 01:30 pm"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_booked_on_label"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_booked_on_label" />
+                    app:layout_constraintEnd_toEndOf="@+id/tv_booking_ref"
+                    app:layout_constraintTop_toTopOf="@+id/tv_booked_on_label" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    app:layout_constraintEnd_toEndOf="@+id/textView2"
+                    app:layout_constraintStart_toStartOf="@+id/textView2"
+                    app:layout_constraintTop_toTopOf="@+id/tv_booking_ref_label" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_booked_on"
+                    app:layout_constraintHorizontal_bias="0.74"
+                    app:layout_constraintStart_toEndOf="@+id/tv_booked_on_label"
+                    app:layout_constraintTop_toTopOf="@+id/tv_booked_on_label" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -105,7 +127,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="10dp"
-                app:cardBackgroundColor="@color/textMuted">
+                style="?attr/materialCardViewElevatedStyle">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -121,7 +143,6 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
                         android:text="Check In"
-                        android:textColor="@color/white"
                         android:textSize="12sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -131,7 +152,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="2022-04-25"
-                        android:textColor="@color/white"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         app:layout_constraintStart_toStartOf="@+id/tv_check_in_label"
                         app:layout_constraintTop_toBottomOf="@+id/tv_check_in_label" />
@@ -142,7 +162,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
                         android:text="Check Out"
-                        android:textColor="@color/white"
                         android:textSize="12sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/tv_check_in_label" />
@@ -152,7 +171,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="2022-04-27"
-                        android:textColor="@color/white"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         app:layout_constraintEnd_toEndOf="@+id/textView8"
                         app:layout_constraintTop_toBottomOf="@+id/textView8" />
@@ -163,7 +181,7 @@
                         android:layout_height="1dp"
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="8dp"
-                        android:background="@color/textMuted"
+                        android:background="@color/stroke_color"
                         app:layout_constraintBottom_toBottomOf="@+id/tv_check_in"
                         app:layout_constraintEnd_toStartOf="@+id/tv_checkout"
                         app:layout_constraintHorizontal_bias="0.0"
@@ -175,7 +193,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="2 nights"
-                        android:textColor="@color/white"
                         app:layout_constraintBaseline_toBaselineOf="@+id/tv_check_in_label"
                         app:layout_constraintEnd_toStartOf="@+id/textView8"
                         app:layout_constraintStart_toEndOf="@+id/tv_check_in_label" />
@@ -186,7 +203,6 @@
                         android:layout_height="1dp"
                         android:layout_marginTop="16dp"
                         android:background="@color/stroke_color"
-                        android:textColor="@color/white"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tv_check_in" />
@@ -198,7 +214,6 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="16dp"
                         android:text="3 guests"
-                        android:textColor="@color/white"
                         app:layout_constraintStart_toEndOf="@+id/imageView3"
                         app:layout_constraintTop_toBottomOf="@+id/view3" />
 
@@ -208,7 +223,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:text="2 rooms"
-                        android:textColor="@color/white"
                         app:layout_constraintEnd_toEndOf="@+id/tv_checkout"
                         app:layout_constraintTop_toBottomOf="@+id/view3" />
 

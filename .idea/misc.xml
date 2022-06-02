@@ -44,6 +44,7 @@
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/drawable-v24/ic_home.xml" value="0.2115" />
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/drawable-v24/ic_list.xml" value="0.229" />
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/drawable-v24/ic_logout.xml" value="0.229" />
+        <entry key="..\:/hello/room-seller-android-app/app/src/main/res/drawable-v24/ic_search.xml" value="0.261" />
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/drawable-v24/list_alt-48px.xml" value="0.229" />
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/drawable-v24/night.xml" value="0.3145" />
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/drawable-v24/person.xml" value="0.2805" />
@@ -58,6 +59,7 @@
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/layout/activity_list_update.xml" value="0.36666666666666664" />
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/layout/activity_main.xml" value="0.27239583333333334" />
+        <entry key="..\:/hello/room-seller-android-app/app/src/main/res/layout/activity_search.xml" value="0.24322916666666666" />
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/layout/app_bar_main.xml" value="0.27239583333333334" />
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/layout/booking_detail_mock.xml" value="0.26254002134471716" />
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/layout/booking_detail_redesign.xml" value="0.3333333333333333" />
@@ -85,13 +87,14 @@
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/layout/item_booking_list_loading.xml" value="0.178125" />
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/layout/item_room_type.xml" value="0.36666666666666664" />
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/layout/nav_header_main.xml" value="0.27239583333333334" />
+        <entry key="..\:/hello/room-seller-android-app/app/src/main/res/menu/action_search.xml" value="0.36666666666666664" />
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/menu/activity_main_drawer.xml" value="0.27239583333333334" />
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/menu/main.xml" value="0.36666666666666664" />
         <entry key="..\:/hello/room-seller-android-app/app/src/main/res/menu/send_confirmation.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

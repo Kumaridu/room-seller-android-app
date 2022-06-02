@@ -47,9 +47,9 @@ public class CalendarAndSortingFieldHelper {
             if(isChecked) {
                 String selectedDateType = materialButton.getText().toString();
                 if(selectedDateType.equalsIgnoreCase("Booking Date")) {
-                    currentSortDateBy =  "Booking Date By ";
+                    currentSortDateBy =  "Booking Date By";
                 } else {
-                    currentSortDateBy = "Check In Date By ";
+                    currentSortDateBy = "Check In Date By";
                 }
             }
         });

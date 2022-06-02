@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -22,13 +23,14 @@
         android:layout_height="wrap_content"
         app:singleSelection="true">
 
+
         <Button
             android:id="@+id/btn_search_by_booking_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Booking Date"
-            style="?attr/materialButtonOutlinedStyle"/>
+            style="@style/ToggleButtonGroupStyle"/>
 
         <Button
             android:id="@+id/btn_search_by_check_in_date"
@@ -36,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Check In Date"
-            style="?attr/materialButtonOutlinedStyle"/>
+            style="@style/ToggleButtonGroupStyle"/>
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
     <CalendarView

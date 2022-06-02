@@ -12,11 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RoomSeller">
         <activity
+            android:name=".SearchActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
+        <activity
             android:name=".MainActivity"
             android:exported="false"
             android:label="@string/title_activity_main"
-            android:theme="@style/Theme.RoomSeller.NoActionBar"></activity>
-
+            android:theme="@style/Theme.RoomSeller.NoActionBar" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,9 +30,10 @@
         <activity
             android:name=".BookingDetail"
             android:exported="false"
-            android:label="Booking Details">
+            android:label="Booking Detail">
             <intent-filter>
                 <action android:name=".BookingDetail" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

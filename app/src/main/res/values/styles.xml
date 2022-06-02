@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+<!--    <style name="ButtonStyle" parent="Widget.MaterialComponents.Button">-->
+<!--        <item name="backgroundTint">?attr/colorPrimary</item>-->
+<!--    </style>-->
+
+    <style name="ToggleButtonGroupStyle" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="backgroundTint">@color/custom_selector</item>
+        <item name="textAllCaps">false</item>
+        <item name="strokeColor">?attr/colorAccent</item>
+    </style>
+
+    <style name="Widget.App.GroupOutlineButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="strokeColor">?attr/colorAccent</item>
+        <item name="rippleColor">?attr/colorAccent</item>
+        <item name="backgroundTint">?attr/colorAccent</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
     <style name="AlertDialogTheme" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
         <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
         <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
@@ -18,4 +35,11 @@
     <style name="NeutralButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
         <item name="android:textColor">?attr/colorAccent</item>
     </style>
+
+    <style name="Widget.App.SmallInputBoxWithBorderColor" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="boxStrokeColor">@color/input_box_high_light_color_list</item>
+    </style>
+
 </resources>
