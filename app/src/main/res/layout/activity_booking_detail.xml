@@ -18,8 +18,9 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:navigationIcon="@drawable/arrow_back"
-            app:popupTheme="@style/Theme.RoomSeller.PopupOverlay" />
+            app:navigationIcon="@drawable/arrow_back_android"
+            app:popupTheme="@style/Theme.RoomSeller.PopupOverlay"
+            android:paddingEnd="10dp"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -78,18 +79,18 @@
                     android:layout_height="wrap_content"
                     android:text="2311-3334"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_booking_ref_label" />
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/tv_booking_ref_label"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_booking_ref_label" />
 
                 <TextView
                     android:id="@+id/tv_booked_on_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
                     android:text="Booked On"
                     android:textColor="@color/textMuted"
-                    app:layout_constraintStart_toStartOf="@+id/tv_booking_ref_label"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_booking_ref_label" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:layout_editor_absoluteY="-3dp" />
 
                 <TextView
                     android:id="@+id/tv_booked_on"
@@ -97,28 +98,73 @@
                     android:layout_height="wrap_content"
                     android:text="April 24 2022, 01:30 pm"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_booking_ref"
-                    app:layout_constraintTop_toTopOf="@+id/tv_booked_on_label" />
+                    app:layout_constraintEnd_toEndOf="@+id/tv_booked_on_label"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_booked_on_label" />
 
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=":"
-                    app:layout_constraintEnd_toEndOf="@+id/textView2"
-                    app:layout_constraintStart_toStartOf="@+id/textView2"
-                    app:layout_constraintTop_toTopOf="@+id/tv_booking_ref_label" />
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=":"
-                    app:layout_constraintEnd_toStartOf="@+id/tv_booked_on"
-                    app:layout_constraintHorizontal_bias="0.74"
-                    app:layout_constraintStart_toEndOf="@+id/tv_booked_on_label"
-                    app:layout_constraintTop_toTopOf="@+id/tv_booked_on_label" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:layout_marginEnd="10dp"-->
+<!--                android:padding="16dp">-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tv_booking_ref_label"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Booking Reference"-->
+<!--                    android:textColor="@color/textMuted"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tv_booking_ref"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="2311-3334"-->
+<!--                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="@+id/tv_booking_ref_label" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tv_booked_on_label"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="16dp"-->
+<!--                    android:text="Booked On"-->
+<!--                    android:textColor="@color/textMuted"-->
+<!--                    app:layout_constraintStart_toStartOf="@+id/tv_booking_ref_label"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/tv_booking_ref_label" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/tv_booked_on"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="April 24 2022, 01:30 pm"-->
+<!--                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"-->
+<!--                    app:layout_constraintEnd_toEndOf="@+id/tv_booking_ref"-->
+<!--                    app:layout_constraintTop_toTopOf="@+id/tv_booked_on_label" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/textView"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text=":"-->
+<!--                    app:layout_constraintEnd_toEndOf="@+id/textView2"-->
+<!--                    app:layout_constraintStart_toStartOf="@+id/textView2"-->
+<!--                    app:layout_constraintTop_toTopOf="@+id/tv_booking_ref_label" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/textView2"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text=":"-->
+<!--                    app:layout_constraintEnd_toStartOf="@+id/tv_booked_on"-->
+<!--                    app:layout_constraintHorizontal_bias="0.74"-->
+<!--                    app:layout_constraintStart_toEndOf="@+id/tv_booked_on_label"-->
+<!--                    app:layout_constraintTop_toTopOf="@+id/tv_booked_on_label" />-->
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
 
 
             <com.google.android.material.card.MaterialCardView

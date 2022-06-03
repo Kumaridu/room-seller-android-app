@@ -22,6 +22,9 @@ import java.util.Date;
 public class CalendarAndSortingFieldHelper {
     private static String currentSortDateBy;
 
+    public static String BOOKING_DATE = "Booking Date";
+    public static String CHECK_IN_DATE = "Check In Date";
+
     public interface OnDateFieldSearchSelectionListener {
         void onDateFieldSearchCriteria(Date selectedDate, String dateType);
     }
@@ -46,7 +49,7 @@ public class CalendarAndSortingFieldHelper {
             MaterialButton materialButton = dialogView.findViewById(checkedId);
             if(isChecked) {
                 String selectedDateType = materialButton.getText().toString();
-                if(selectedDateType.equalsIgnoreCase("Booking Date")) {
+                if(selectedDateType.equalsIgnoreCase(BOOKING_DATE)) {
                     currentSortDateBy =  "Booking Date By";
                 } else {
                     currentSortDateBy = "Check In Date By";

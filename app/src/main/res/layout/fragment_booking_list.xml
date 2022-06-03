@@ -1,100 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/stroke_color"
     android:orientation="vertical"
     android:id="@+id/goToDetail">
-
-    <LinearLayout
-        android:id="@+id/search_by_date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="?attr/colorPrimaryVariant"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:weightSum="4">
-
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/ic_calendar"
-            android:layout_marginRight="8dp"
-            android:layout_weight="1"
-            app:tint="@color/white" />
-
-        <TextView
-            android:id="@+id/tv_search_field_date"
-            android:textColor="@color/white"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="2"
-            android:textColorHint="@color/white"
-            android:hint="Search by booking date or check in date"/>
-
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/ic_down_arrow"
-            android:layout_weight="1"
-            android:layout_gravity="center_horizontal"
-            app:tint="@color/white" />
-
-    </LinearLayout>
-
-<!--    <com.google.android.material.textfield.TextInputLayout-->
-<!--        android:padding="10dp"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:hint="booking ref or guest name">-->
-
-<!--        <com.google.android.material.textfield.TextInputEditText-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:drawableStart="@drawable/ic_home"-->
-<!--            android:drawableTint="@color/textMuted"/>-->
-
-<!--    </com.google.android.material.textfield.TextInputLayout>-->
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="4dp"
-        android:paddingBottom="4dp"
-        android:paddingEnd="8dp"
-        android:paddingStart="8dp"
-        android:weightSum="5">
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tv_search_filter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:placeholderTextColor="@color/textMuted"
-            app:placeholderText=" Booking ref or guest name"
-            style="@style/Widget.App.SmallInputBoxWithBorderColor">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_agent_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_search"
-                android:drawableTint="@color/textMuted"
-                android:textColor="?attr/colorOnSurface"
-                style="@style/ThemeOverlay.MaterialComponents.TextInputEditText.FilledBox"/>
-        </com.google.android.material.textfield.TextInputLayout>
-    </LinearLayout>
-
-<!--    <SearchView-->
-<!--        android:id="@+id/tv_search_filter"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:queryHint="Booking ref or guest name"-->
-<!--        android:iconifiedByDefault="false"-->
-<!--        android:paddingBottom="10dp"/>-->
 
     <ProgressBar
         android:id="@+id/pb_loading"

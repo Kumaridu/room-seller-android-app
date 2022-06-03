@@ -16,6 +16,8 @@
 
     <color name="dark_blue">#27293d</color>
     <color name="light_dark_blue">#303c54</color>
+    <color name="text_color">#4A508A</color>
+    <color name="gray_200">#E6E6E6</color>
 
     <color name="blue">#234c9e</color>
     <color name="textMuted">#797979</color>

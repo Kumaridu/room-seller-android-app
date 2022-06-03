@@ -1,6 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="2dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/bookingRowLayout2"
+    app:strokeColor="@color/stroke_color"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        app:strokeColor="@color/stroke_color">
+
+
+        <TextView
+            android:id="@+id/tv_row_guest_name_num_guest_num_rooms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dominic Rath | 3 guests | 2 rooms"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_row_booking_ref_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Booking Reference"
+            android:textColor="@color/textMuted"
+            android:textSize="12sp"
+            tools:layout_editor_absoluteX="103dp"
+            tools:layout_editor_absoluteY="139dp" />
+
+        <TextView
+            android:id="@+id/tv_row_booked_on_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Booked On"
+            android:textColor="@color/textMuted"
+            android:textSize="12sp"
+            tools:layout_editor_absoluteX="332dp"
+            tools:layout_editor_absoluteY="91dp" />
+
+        <TextView
+            android:id="@+id/tv_row_booked_on"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Feb 24 2022, 01:40pm"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            tools:layout_editor_absoluteX="252dp"
+            tools:layout_editor_absoluteY="139dp" />
+
+        <TextView
+            android:id="@+id/tv_row_checkin_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Check In"
+            android:textColor="@color/textMuted"
+            android:textSize="12sp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="150dp" />
+
+        <TextView
+            android:id="@+id/tv_checkIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2022-2-25"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            tools:layout_editor_absoluteX="32dp"
+            tools:layout_editor_absoluteY="198dp" />
+
+        <TextView
+            android:id="@+id/tv_row_checkout_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Check Out"
+            android:textColor="@color/textMuted"
+            android:textSize="12sp"
+            tools:layout_editor_absoluteX="336dp"
+            tools:layout_editor_absoluteY="198dp" />
+
+        <TextView
+            android:id="@+id/tv_row_checkout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2022-02-27"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            tools:layout_editor_absoluteX="320dp"
+            tools:layout_editor_absoluteY="246dp" />
+
+        <View
+            android:id="@+id/view6"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/textMuted"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="232dp" />
+
+        <TextView
+            android:id="@+id/tv_row_nights"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2 nights"
+            tools:layout_editor_absoluteX="294dp"
+            tools:layout_editor_absoluteY="203dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:textColor="@color/text_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Ref: 2022-3456"
+            app:layout_constraintStart_toStartOf="@+id/tv_row_guest_name_num_guest_num_rooms"
+            app:layout_constraintTop_toBottomOf="@+id/tv_row_guest_name_num_guest_num_rooms" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
+
