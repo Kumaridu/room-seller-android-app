@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.card.MaterialCardView;
 import com.innoveller.roomseller.R;
+import com.innoveller.roomseller.databinding.ItemBookingInfo2Binding;
 import com.innoveller.roomseller.databinding.ItemBookingInfoBinding;
 import com.innoveller.roomseller.rest.dtos.Booking;
 import com.innoveller.roomseller.utilities.DateFormatUtility;
@@ -37,7 +38,7 @@ public class BookingInfoViewAdapter extends RecyclerView.Adapter<BookingInfoView
     @NonNull
     @Override
     public BookingItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_booking_info,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_booking_info2,parent,false);
         return new BookingItemViewHolder(view);
     }
 
@@ -53,14 +54,14 @@ public class BookingInfoViewAdapter extends RecyclerView.Adapter<BookingInfoView
         itemHolder.numNights.setText(booking.numberOfNight + " " + night);
 
         try {
-            itemHolder.bookedOn.setText(DateFormatUtility.formatFriendlyDateTimeWithYear(booking.bookingDate));
+            itemHolder.bookedOn.setText("Booked On " + DateFormatUtility.formatFriendlyDateTimeWithYear(booking.bookingDate));
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
         itemHolder.checkInDate.setText(DateFormatUtility.formatFriendlyDate(booking.checkInDate));
         itemHolder.checkOutDate.setText(DateFormatUtility.formatFriendlyDate(booking.checkOutDate));
-        itemHolder.bookingRef.setText(booking.reference);
+        itemHolder.bookingRef.setText("Ref: " +booking.reference);
 
         itemHolder.bookingLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,7 +82,7 @@ public class BookingInfoViewAdapter extends RecyclerView.Adapter<BookingInfoView
 
         public BookingItemViewHolder(View itemView) {
             super(itemView);
-            ItemBookingInfoBinding binding = ItemBookingInfoBinding.bind(itemView);
+            ItemBookingInfo2Binding binding = ItemBookingInfo2Binding.bind(itemView);
             guestName = binding.tvRowGuestNameNumGuestNumRooms;
             numNights = binding.tvRowNights;
             bookingRef = binding.tvRowBookingRef;

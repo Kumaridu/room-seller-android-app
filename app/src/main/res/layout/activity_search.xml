@@ -23,18 +23,18 @@
             app:navigationIcon="@drawable/arrow_back_android_black"
             android:paddingEnd="10dp">
 
-                <androidx.appcompat.widget.SearchView
-                    android:id="@+id/search_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/search_box_design"
-                    android:backgroundTint="@color/white"
-                    app:iconifiedByDefault="false"
-                    app:queryBackground="@android:color/transparent"
-                    app:queryHint="Booking reference or guest name"
-                    app:searchIcon="@drawable/ic_search"
-                    app:theme="@style/AppSearchView" />
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/search_view"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:background="@drawable/search_box_design"
+                android:backgroundTint="@color/white"
+                app:iconifiedByDefault="false"
+                app:queryBackground="@android:color/transparent"
+                app:queryHint="Booking reference or guest name"
+                app:searchIcon="@drawable/ic_search"
+                app:theme="@style/AppSearchView" />
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -58,6 +58,7 @@
             app:chipIcon="@drawable/ic_down_arrow"
             android:checkable="false"
             app:chipMinHeight="38dp" />
+
     </com.google.android.material.chip.ChipGroup>
 
 
@@ -69,14 +70,10 @@
         android:paddingBottom="5dp"
         android:layout_marginTop="5dp"/>
 
-
     <ProgressBar
         android:id="@+id/pb_search_loading"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:visibility="gone"/>
-
-
-
 </LinearLayout>

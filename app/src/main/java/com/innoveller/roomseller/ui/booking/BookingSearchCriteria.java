@@ -66,8 +66,12 @@ public class BookingSearchCriteria {
             BookingSearchCriteria criteria = new BookingSearchCriteria(this);
             return criteria;
         }
+
     }
 
+    public boolean isEmptySearchCriteria() {
+        return this.bookingRef == null && this.guestName == null && this.bookingDate == null && this.checkInDate == null;
+    }
 
 
 }

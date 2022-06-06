@@ -9,127 +9,127 @@
     app:strokeColor="@color/stroke_color"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        app:strokeColor="@color/stroke_color">
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:padding="16dp"-->
+<!--        app:strokeColor="@color/stroke_color">-->
 
 
-        <TextView
-            android:id="@+id/tv_row_guest_name_num_guest_num_rooms"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Dominic Rath | 3 guests | 2 rooms"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+<!--        <TextView-->
+<!--            android:id="@+id/tv_row_guest_name_num_guest_num_rooms"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Dominic Rath | 3 guests | 2 rooms"-->
+<!--            android:textAppearance="@style/TextAppearance.AppCompat.Small"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
 
-        <TextView
-            android:id="@+id/tv_row_booking_ref_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Booking Reference"
-            android:textColor="@color/textMuted"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/tv_row_guest_name_num_guest_num_rooms"
-            app:layout_constraintTop_toBottomOf="@+id/tv_row_guest_name_num_guest_num_rooms" />
+<!--        <TextView-->
+<!--            android:id="@+id/tv_row_booking_ref_label"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:text="Booking Reference"-->
+<!--            android:textColor="@color/textMuted"-->
+<!--            android:textSize="12sp"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/tv_row_guest_name_num_guest_num_rooms"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tv_row_guest_name_num_guest_num_rooms" />-->
 
-        <TextView
-            android:id="@+id/tv_row_booking_ref"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2022-3456"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintStart_toStartOf="@+id/tv_row_guest_name_num_guest_num_rooms"
-            app:layout_constraintTop_toBottomOf="@+id/tv_row_booking_ref_label" />
+<!--        <TextView-->
+<!--            android:id="@+id/tv_row_booking_ref"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="2022-3456"-->
+<!--            android:textAppearance="@style/TextAppearance.AppCompat.Small"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/tv_row_guest_name_num_guest_num_rooms"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tv_row_booking_ref_label" />-->
 
-        <TextView
-            android:id="@+id/tv_row_booked_on_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/textMuted"
-            android:text="Booked On"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@+id/tv_row_booked_on"
-            app:layout_constraintTop_toTopOf="@+id/tv_row_booking_ref_label" />
+<!--        <TextView-->
+<!--            android:id="@+id/tv_row_booked_on_label"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textColor="@color/textMuted"-->
+<!--            android:text="Booked On"-->
+<!--            android:textSize="12sp"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/tv_row_booked_on"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/tv_row_booking_ref_label" />-->
 
-        <TextView
-            android:id="@+id/tv_row_booked_on"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Feb 24 2022, 01:40pm"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_row_booked_on_label" />
+<!--        <TextView-->
+<!--            android:id="@+id/tv_row_booked_on"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Feb 24 2022, 01:40pm"-->
+<!--            android:textAppearance="@style/TextAppearance.AppCompat.Small"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tv_row_booked_on_label" />-->
 
-        <TextView
-            android:id="@+id/tv_row_checkin_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/textMuted"
-            android:text="Check In"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/tv_row_booking_ref"
-            app:layout_constraintTop_toBottomOf="@+id/tv_row_booking_ref" />
+<!--        <TextView-->
+<!--            android:id="@+id/tv_row_checkin_label"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:textColor="@color/textMuted"-->
+<!--            android:text="Check In"-->
+<!--            android:textSize="12sp"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/tv_row_booking_ref"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tv_row_booking_ref" />-->
 
-        <TextView
-            android:id="@+id/tv_checkIn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2022-2-25"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintStart_toStartOf="@+id/tv_row_checkin_label"
-            app:layout_constraintTop_toBottomOf="@+id/tv_row_checkin_label" />
+<!--        <TextView-->
+<!--            android:id="@+id/tv_checkIn"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="2022-2-25"-->
+<!--            android:textAppearance="@style/TextAppearance.AppCompat.Small"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/tv_row_checkin_label"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tv_row_checkin_label" />-->
 
-        <TextView
-            android:id="@+id/tv_row_checkout_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Check Out"
-            android:textColor="@color/textMuted"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@+id/tv_row_checkout"
-            app:layout_constraintTop_toBottomOf="@+id/tv_row_booked_on" />
+<!--        <TextView-->
+<!--            android:id="@+id/tv_row_checkout_label"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:text="Check Out"-->
+<!--            android:textColor="@color/textMuted"-->
+<!--            android:textSize="12sp"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/tv_row_checkout"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tv_row_booked_on" />-->
 
-        <TextView
-            android:id="@+id/tv_row_checkout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2022-02-27"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_row_checkout_label" />
+<!--        <TextView-->
+<!--            android:id="@+id/tv_row_checkout"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="2022-02-27"-->
+<!--            android:textAppearance="@style/TextAppearance.AppCompat.Small"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tv_row_checkout_label" />-->
 
-        <View
-            android:id="@+id/view6"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@color/textMuted"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_checkIn"
-            app:layout_constraintEnd_toStartOf="@+id/tv_row_checkout"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/tv_checkIn"
-            app:layout_constraintTop_toTopOf="@+id/tv_checkIn" />
+<!--        <View-->
+<!--            android:id="@+id/view6"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="1dp"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:layout_marginEnd="16dp"-->
+<!--            android:background="@color/textMuted"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/tv_checkIn"-->
+<!--            app:layout_constraintEnd_toStartOf="@+id/tv_row_checkout"-->
+<!--            app:layout_constraintHorizontal_bias="0.0"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/tv_checkIn"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/tv_checkIn" />-->
 
-        <TextView
-            android:id="@+id/tv_row_nights"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="2 nights"
-            app:layout_constraintBottom_toTopOf="@+id/view6"
-            app:layout_constraintEnd_toStartOf="@+id/tv_row_checkout"
-            app:layout_constraintStart_toEndOf="@+id/tv_checkIn" />
+<!--        <TextView-->
+<!--            android:id="@+id/tv_row_nights"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="8dp"-->
+<!--            android:layout_marginEnd="8dp"-->
+<!--            android:text="2 nights"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/view6"-->
+<!--            app:layout_constraintEnd_toStartOf="@+id/tv_row_checkout"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/tv_checkIn" />-->
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
 </com.google.android.material.card.MaterialCardView>
 

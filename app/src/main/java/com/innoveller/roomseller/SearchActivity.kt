@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
@@ -34,7 +36,6 @@ class SearchActivity : AppCompatActivity(){
         val bookingViewModel = ViewModelProvider(this)[BookingListViewModel::class.java]
         val toolbar = binding.toolbar
         val dateChip = binding.searchByDate
-
         // recycler view
         val recyclerView: RecyclerView = binding.rvSearchBookingList
         var adapter = BookingInfoViewAdapter(bookingList)
@@ -44,26 +45,41 @@ class SearchActivity : AppCompatActivity(){
 
         val progressBar = binding.pbSearchLoading
         val searchView = binding.searchView
-        var searchQuery = ""
 
         bookingViewModel.getBookings().observeForever { result ->
             progressBar.visibility = View.GONE
 
-            if(result.isEmpty()) {
+            if(result.isEmpty() && !searchCriteria.isEmptySearchCriteria) {
                 Toast.makeText(this,"No Match Found", Toast.LENGTH_LONG).show()
                 Log.d(TAG, "onCreate: Search Result Empty")
             }
 
+            bookingList.clear()
             bookingList.addAll(result)
+            Log.d(TAG, "onCreate: booking list size: ${bookingList.size}")
             adapter.notifyDataSetChanged()
         }
 
         var builder: BookingSearchCriteria.BookingSearchCriteriaBuilder = BookingSearchCriteria.BookingSearchCriteriaBuilder()
 
+        val closeBtnId = searchView.context.resources
+            .getIdentifier("android:id/search_close_btn", null, null)
+        val searchEditTextId = searchView.context.resources
+            .getIdentifier("android:id/search_src_text", null, null)
+        val closeBtn = searchView.findViewById<ImageView>(closeBtnId)
+        val searchEditText = searchView.findViewById<EditText>(searchEditTextId)
+
+        closeBtn?.setOnClickListener {
+            Log.d(TAG, "onCreateView: I was clicked close ")
+            searchEditText.clearFocus()
+            builder.bookingRefAndGuestName(null, null)
+            bookingViewModel.loadBookingList(progressBar, searchCriteria)
+        }
+
         // Search By Booking reference or guest name
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                searchQuery = query!!
+                val searchQuery = query!!
 
                 builder.bookingRefAndGuestName(searchQuery, searchQuery)
                 searchCriteria = builder.build()
@@ -72,8 +88,18 @@ class SearchActivity : AppCompatActivity(){
                 return false;
             }
 
-            override fun onQueryTextChange(p0: String?): Boolean {
-                Log.d(TAG, "onQueryTextChange: I changed: $p0")
+            override fun onQueryTextChange(query: String?): Boolean {
+                if(query!!.isBlank()) {
+                    builder.bookingRefAndGuestName(null, null)
+                } else {
+                    val searchQuery = query!!
+                    builder.bookingRefAndGuestName(searchQuery, searchQuery)
+                }
+
+                searchCriteria = builder.build()
+
+                bookingViewModel.loadBookingList(progressBar, searchCriteria)
+                Log.d(TAG, "onQueryTextChange: I changed: $query")
                 return false
             }
         })
@@ -109,6 +135,12 @@ class SearchActivity : AppCompatActivity(){
         dateChip.setOnCloseIconClickListener {
             dateChip.text = "Date"
             dateChip.isCloseIconVisible = false
+
+            // Resetting both date to null
+            builder.bookingIdDate(null)
+            builder.checkInDate(null)
+
+            searchCriteria =  builder.build()
             bookingViewModel.loadBookingList(progressBar, searchCriteria)
         }
 
@@ -116,42 +148,7 @@ class SearchActivity : AppCompatActivity(){
         toolbar.setNavigationOnClickListener { onBackPressed() }
     }
 
-    /* @SuppressLint("ResourceAsColor")
-     override fun onCreateOptionsMenu(menu: Menu): Boolean {
 
-         // Inflate the menu; this adds items to the action bar if it is present.
-         menuInflater.inflate(R.menu.expandable_search, menu)
-
-         val searchView = menu.findItem(id.expanded_search).actionView as SearchView
- //        searchView.setBackgroundColor(color.input_box_high_light_color_list)
-         searchView.isIconified = false;
-         searchView.queryHint = "Search by booking ref or guest name"
-
-         searchView.setBackgroundResource(R.drawable.custom_shape)
- //        searchView.setBackgroundColor(R.color.input_box_high_light_color_list)
- //        searchView.setBackgroundColor(R.color.white)
-
- //        val closeBtnId = searchView.context.resources
- //            .getIdentifier("android:id/search_close_btn", null, null)
- //        val searchEditTextId = searchView.context.resources
- //            .getIdentifier("android:id/search_src_text", null, null)
- //
- ////        val searchSrcTextId = resources.getIdentifier("android:id/search_src_text", null, null)
- ////        val searchEditText = searchView.findViewById<View>(searchSrcTextId) as EditText
- //
- //
- //        val closeBtn = searchView.findViewById<ImageView>(closeBtnId)
- //        val searchEditText = searchView.findViewById<EditText>(searchEditTextId)
- //
- //        if(searchEditText != null) {
- //            searchEditText.setTextColor(Color.BLACK)
- //            searchEditText.setHintTextColor(Color.LTGRAY)
- //        }
-
-
- //        searchView.setBackgroundResource(R.color.input_box_high_light_color_list)
-         return true
-     } */
     companion object {
         private const val TAG = "SearchActivity"
     }

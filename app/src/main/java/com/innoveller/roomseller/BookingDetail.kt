@@ -1,10 +1,7 @@
 package com.innoveller.roomseller
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
-import android.view.MenuInflater
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -24,7 +21,6 @@ import com.innoveller.roomseller.utilities.DateFormatUtility
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.*
 
 
 class BookingDetail : AppCompatActivity() {
@@ -70,9 +66,9 @@ class BookingDetail : AppCompatActivity() {
 
     fun emailOnClick(view: View) {
         val dialogLayout = layoutInflater.inflate(R.layout.dialog_send_email_confirmation, null)
-//        val dialogLayout = layoutInflater.inflate(R.layout.dialog_calendar_booking_checkin_date, null)
-//        val sendEmail = dialogLayout.findViewById<TextView>(R.id.edit_booking_ref)
-//        sendEmail.text = guestEmail
+        Log.d(TAG, "emailOnClick: I was clicked")
+        val sendEmail = dialogLayout.findViewById<TextView>(R.id.edit_booking_ref)
+        sendEmail.text = guestEmail
 
         MaterialAlertDialogBuilder(this)
             .setTitle("Send Confirmation Email")

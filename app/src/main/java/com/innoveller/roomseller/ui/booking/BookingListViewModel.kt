@@ -12,7 +12,6 @@ import com.innoveller.roomseller.rest.dtos.Booking
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.*
 
 class BookingListViewModel : ViewModel() {
 
@@ -38,42 +37,45 @@ class BookingListViewModel : ViewModel() {
                     if (bookingListBody != null) {
 
                         //this condition will be from server to let us know if there is more data or not to fetch. Currently just make mock data
-                        if(apiCallCount >= 6) {
+//                        if(apiCallCount <= 6) {
 
                             // mock search implementation
                             if(searchCriteria != null) {
-                                for(booking in bookingListBody!!) {
-                                    if (searchCriteria.guestName != null) {
-                                        bookingListBody = bookingListBody.filter { booking ->
-                                            booking.customer.name.contentEquals(searchCriteria.guestName)
+                                if(searchCriteria.isEmptySearchCriteria) {
+                                    resultMutableLiveData.postValue(listOf<Booking>())
+                                    return
+                                }
+
+                                if (searchCriteria.guestName != null) {
+                                    bookingListBody = if(searchCriteria.guestName.any { Character.isDigit(it) }) {
+                                        bookingListBody.filter { booking ->
+                                            booking.reference.contains(searchCriteria.bookingRef)
                                         }
-                                    }
-                                    if (searchCriteria.bookingRef != null) {
-                                        bookingListBody = bookingListBody.filter { booking ->
-                                            booking.reference.contentEquals(searchCriteria.bookingRef)
-                                        }
-                                    }
-                                    if (searchCriteria.checkInDate != null) {
-                                        bookingListBody = bookingListBody.filter { booking ->
-                                            booking.checkInDate == searchCriteria.checkInDate
-                                        }
-                                        if (searchCriteria.bookingDate != null) {
-                                            bookingListBody = bookingListBody.filter { booking ->
-                                                booking.bookingDate == searchCriteria.bookingDate
-                                            }
+                                    } else {
+                                        bookingListBody.filter { booking ->
+                                            booking.customer.name.contains(searchCriteria.guestName)
                                         }
                                     }
                                 }
 
-                            }  else {
-                                resultMutableLiveData.postValue(listOf<Booking>())
+                                if (searchCriteria.checkInDate != null) {
+                                    bookingListBody = bookingListBody.filter { booking ->
+                                        booking.checkInDate == searchCriteria.checkInDate
+                                    }
+                                }
+                                if (searchCriteria.bookingDate != null) {
+                                    bookingListBody = bookingListBody.filter { booking ->
+                                        booking.bookingDate == searchCriteria.bookingDate
+                                    }
+                                }
                             }
 
-                        } else {
                             resultMutableLiveData.postValue(bookingListBody!!)
+                        } else {
+                            resultMutableLiveData.postValue(listOf<Booking>())
                         }
                     }
-                }
+//                }
             }
 
             override fun onFailure(call: Call<List<Booking>?>, t: Throwable) {
@@ -82,6 +84,7 @@ class BookingListViewModel : ViewModel() {
             }
         })
     }
+
 
 //    fun loadBookingList(loadingBar: ProgressBar, query: String) {
 //        apiCallCount++

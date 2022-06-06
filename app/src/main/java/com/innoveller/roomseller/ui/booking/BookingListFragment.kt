@@ -44,20 +44,6 @@ class BookingListFragment : Fragment() {
 
         bookingViewModel.loadBookingList(progressBar, null)
         bookingViewModel.getBookings().observe(viewLifecycleOwner) { result ->
-            //If there is no search result
-//            if(isSearch) {
-//                if(result.isEmpty()) {
-//                    Toast.makeText(context,"No Match Found", Toast.LENGTH_LONG).show()
-//                }
-//                isSearch = false
-//            }
-            //If it is calling the api after resetting the api load, then clear the booking list and reset the firstTimeLoad to false
-//            if(isFirstTimeLoad) {
-//                EndlessRecyclerViewScrollListener.previousItemTotalCount = 0;
-//                bookingList.clear()
-//                isFirstTimeLoad = false
-//            }
-
             bookingList.addAll(result)
             adapter.notifyDataSetChanged()
         }
@@ -73,29 +59,6 @@ class BookingListFragment : Fragment() {
             bookingViewModel.loadBookingList(pbBottomProgressBar, null)
         })
 
-        // Search By Date
-        var calendarChosenDate  = Date()
-        var searchDateType  = "Booking Date By"
-//        searchFieldDate.text = searchDateType + " " + DateFormatUtility.formatFriendlyDate(calendarChosenDate);
-//
-//        searchByDateLayout.setOnClickListener {
-//            val inflater = LayoutInflater.from(context)
-//            val dialogLayoutView = inflater.inflate(R.layout.dialog_calendar_booking_checkin_date, null)
-//            Log.d(TAG, "onCreateView: This is search date type: $searchDateType")
-//            CalendarAndSortingFieldHelper.showCalendarWithBookingAndCheckInDateDialog(
-//                context, dialogLayoutView, searchDateType, calendarChosenDate) { selectedDate, dateType ->
-//                calendarChosenDate = selectedDate;
-//                searchDateType = dateType
-//                searchFieldDate.text = dateType + " " + DateFormatUtility.formatFriendlyDate(calendarChosenDate);
-//
-//                EndlessRecyclerViewScrollListener.previousItemTotalCount = 0
-//                isFirstTimeLoad = true
-//                //Currently mock the search query
-//                searchQuery = "si";
-//                bookingViewModel.loadBookingList(progressBar, searchQuery);
-//                Log.d(TAG,"onDateFieldSearchCriteria: will send to the api")
-//            }
-//        }
         setHasOptionsMenu(true);
         return root
     }

@@ -22,8 +22,8 @@ import java.util.Date;
 public class CalendarAndSortingFieldHelper {
     private static String currentSortDateBy;
 
-    public static String BOOKING_DATE = "Booking Date";
-    public static String CHECK_IN_DATE = "Check In Date";
+    public static String BOOKING_DATE = "Booking Date By";
+    public static String CHECK_IN_DATE = "Check In Date By";
 
     public interface OnDateFieldSearchSelectionListener {
         void onDateFieldSearchCriteria(Date selectedDate, String dateType);
@@ -35,6 +35,7 @@ public class CalendarAndSortingFieldHelper {
 
         currentSortDateBy = dateType;
         final Date[] currentChosenDate = new Date[1];
+        currentChosenDate[0] = previousChosenDate;
         MaterialButtonToggleGroup dateToggleGroup = dialogView.findViewById(R.id.btn_toggle_group);
         CalendarView calendarView = dialogView.findViewById(R.id.clv);
 
@@ -58,6 +59,7 @@ public class CalendarAndSortingFieldHelper {
         });
 
         calendarView.setDate(previousChosenDate.getTime());
+
         calendarView.setOnDateChangeListener((view, year, month, dayOfMonth) -> {
             String chosenDateString = year + "-" + (month+1) + "-" + dayOfMonth;
             try {
